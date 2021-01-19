@@ -1,0 +1,6 @@
+        rewrite  ^/newslist/(.*)$  /news.php?page=$1?  last;
+        rewrite  ^/newsdetail/(.*)$  /detail.php?id=$1?  last;
+        rewrite  ^/game  /game.php  last;
+        rewrite  ^/activity  /activity.php  last;
+        rewrite  ^/aboutus  /about.php  last;
+        rewrite  ^/index  /index.php  last;

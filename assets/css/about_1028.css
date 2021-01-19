@@ -1,0 +1,52 @@
+.content{
+    width: 85%;
+    max-width: 1600px;
+    padding: 55px 0 60px;
+    margin: 50px auto 0;
+    position: relative;
+    background-color: rgb(6,24,30,0.8);
+    box-sizing: border-box;
+}
+.light{
+    position:absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    bottom: 0;
+    background:url(../img/light_03.png) left top no-repeat;
+    background-size: 100% 20px;
+}
+.reverse .light{
+    background: url(../img/light_02.png) left top no-repeat;
+}
+.left{
+    margin-left: 5%;
+    float: left;
+    width: 30%;
+}
+.reverse .left{
+    width: 56%;
+}
+.reverse .rig{
+    width: 30%;
+}
+.left img,
+.rig img{
+    width: 100%;
+}
+.rig{
+    margin-right: 5%;
+    float: right;
+    width: 56%;
+}
+.rig .tit,
+.reverse .left .tit{
+  width: 520px;
+}
+.rig p,
+.reverse .left p{
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #e1eeff;
+}
