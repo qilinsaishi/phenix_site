@@ -3,6 +3,7 @@
 <?php require_once "function/init.php";
 $data = [
     "slideImage"=>["dataType"=>"imageList","site_id"=>2,"flag"=>"index_slider","page_size"=>20],
+    "defaultConfig"=>["keys"=>["iphone","word"]],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 ?>
@@ -37,10 +38,10 @@ $return = curl_post($config['api_get'],json_encode($data),1);
         <div class="light"></div>
         <div class="banner-body clearfix">
             <div class="left">
-                <img src="./assets/img/iphone.png" alt="">
+                <img src="<?php echo $return['defaultConfig']['data']['iphone']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['iphone']['name'];?>">
             </div>
             <div class="rig">
-                <p><img src="./assets/img/word.png" alt=""></p>
+                <p><img src="<?php echo $return['defaultConfig']['data']['word']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['word']['name'];?>"></p>
                 <p class="btns">
                     <a href="" target="_blank">安卓版下载</a>
                     <a href="" target="_blank">苹果版下载</a>
