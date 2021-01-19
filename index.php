@@ -92,8 +92,8 @@ $return = curl_post($config['api_get'],json_encode($data),1);
         <p class="code">扫一扫这个二维码，参与竞猜赢大礼</p>
         <?php renderCertification(0);?>    </div>
 </div>
-<script src="./assets/lib/jquery.min.js"></script>
-<script src="./assets/lib/swiper.min.js"></script>
-<script src="./assets/js/index.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/lib/swiper.min.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/js/index.js"></script>
 </body>
 </html>

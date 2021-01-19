@@ -85,8 +85,8 @@
     </div>
     <?php renderCertification();?>
 </div>
-<script src="./assets/lib/jquery.min.js"></script>
-<script src="./assets/lib/swiper.min.js"></script>
-<script src="./assets/js/activity.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/lib/swiper.min.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/js/activity.js"></script>
 </body>
 </html>
