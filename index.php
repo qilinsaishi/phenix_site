@@ -3,7 +3,8 @@
 <?php require_once "function/init.php";
 $data = [
     "slideImage"=>["dataType"=>"imageList","site_id"=>2,"flag"=>"index_slider","page_size"=>20],
-    "defaultConfig"=>["keys"=>["iphone","word"]],
+    "defaultConfig"=>["keys"=>["iphone","word","app_qrcode"],"site_id"=>2],
+    "newCustomer"=>["dataType"=>"imageList","site_id"=>2,"flag"=>"ceremony","page_size"=>20],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 ?>
@@ -80,13 +81,14 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <div class="gift">
         <h6 class="tit"><img src="./assets/img/title_3.png" alt=""></h6>
         <div class="content">
-            <a href=""><img src="https://dummyimage.com/350x238/ff6600/fff" alt=""></a>
-            <a href=""><img src="https://dummyimage.com/350x238/380f7e/fff" alt=""></a>
-            <a href=""><img src="https://dummyimage.com/350x238/be5086/fff" alt=""></a>
+            <?php foreach ($return['newCustomer']['data'] as $key => $image) {?>
+
+            <a href="<?php echo $image['url'];?>"><img src="<?php echo $image['logo'];?>" alt="<?php echo $image['name'];?>"></a>
+            <?php }?>
         </div>
     </div>
     <div class="footer">
-        <p><img src="./assets/img/qrcode.jpg" alt=""></p>
+        <p><img src="<?php echo $return['defaultConfig']['data']['app_qrcode']['value'];?>" alt=""></p>
         <p class="code">扫一扫这个二维码，参与竞猜赢大礼</p>
         <?php renderCertification(0);?>    </div>
 </div>
