@@ -16,35 +16,35 @@ pre{white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; w
     clear: both;
 }
 body{
-    background: url(../img/bk_1.jpg) left top no-repeat;
+    background: url(../img/B_1.jpg) left top no-repeat;
     background-size: cover;
 }
 .head{
     padding-top: 57px;
-    height: 106px;
+    height: 107px;
     position: relative;
-    background-color: #02151e;
+    background-color: #17182f;
 }
 .head img{
-    width: 250px;
+    width: 142px;
     position:absolute;
     left: 50%;
-    top: 15px;
-    margin-left: -125px;
+    top: 18px;
+    margin-left: -71px;
     z-index: 5;
 }
 .head-body{
-    width: 1028px;
+    width: 1200px;
     height: 56px;
     margin: 0 auto;
     border-radius: 32px;
-    border:3px solid #ffbb12;
+    border: solid 3px #febd68;
 }
 .head-body li{
     float: left;
-    width: 165px;
-    font-size: 30px;
-    margin-right: 40px;
+    width: 170px;
+    font-size: 24px;
+    margin-right: 103px;
     line-height: 56px;
     font-weight: 900;
     text-align: center;
@@ -55,24 +55,28 @@ body{
 
 .head-body li.sel a{
     color: #02151e;
-    border-radius: 32px;
-    background-color: #ffbb12;
+    border-radius: 30px;
+    background-color: #febd68;
 }
-.head-body li:nth-child(2){
-    margin-right: 288px;
+.head-body li:nth-child(3){
+    margin-left: 211px;
 }
 .head-body li a{
     display: block;
-    color: #ffbb12;
+    width: 100%;
+    color: #febd68;
 }
 
 .footer{
-    margin: 90px 0 50px;
+    width: 100%;
+    height: 154px;
+    margin: 116px 0 0;
+    background-color: #17182f;
  }
  .footer p {
      text-align: center;
-     font-size: 18px;
-     font-weight: 200;
-     line-height: 32px;
-     color: #e1eeff;
+     font-size: 24px;
+     font-weight: 600;
+     line-height: 154px;
+     color: #f5f5f5;
  }

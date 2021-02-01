@@ -1,6 +1,6 @@
 .content{
     width: 85%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 76px auto 0;
     color: #fff;
 }
@@ -19,43 +19,44 @@
 }
 .list .left{
     float: left;
-    width: 28%;
+    width: 200px;
 }
 .list .left img{
     width: 100%;
 }
 .list .rig{
-    width: 68%;
+    width: 970px;
     float: right;
 }
 .list .rig h6{
-    font-size: 30px;
+    font-size: 18px;
+    line-height: 26px;
     font-weight: bold;
-    line-height: 38px;
 }
 .list .rig p{
     margin: 12px 0 22px;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 14px;
+    line-height: 22px;
 }
 .list .rig a{
-    width: 116px;
-    height: 50px;
+    width: 58px;
+    height: 26px;
+    border-radius: 5px;
+    background-color: #febd68;
     float: left;
     display: inline-block;
-    border-radius: 9px;
-    background-color: #ffbb12;
-    color: #1b2939;
-    font-size: 28px;
-    line-height: 50px;
-    font-weight: bold;
     text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+    color: #1b2939;
+    font-weight: bold;
+   
 }
 
 .list .rig span{
     float: right;
-    font-size: 24px;
-    line-height: 50px;
+    font-size: 14px;
+    line-height: 26px;
 }
 .pagination-wrapper{
     text-align: center;
@@ -63,22 +64,22 @@
 }
 .pagination-wrapper a{
     display: inline-block;
-    width: 59px;
-    height: 55px;
-    border: 1px solid #ffbb12;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #febd68;
     border-right: none;
-    color: #ffbb12;
-    font-size: 30px;
-    line-height: 55px;
+    color: #febd68;
     text-align: center;
+    font-size: 15px;
+    line-height: 30px;
 }
 .pagination-wrapper a.active{
-    background: #ffbb12;
+    background: #febd68;
     color: #06181e;
 }
 .pagination-wrapper a.prev{
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 .pagination-wrapper a.next{
     border-right: 1px solid #ffbb12;

@@ -1,6 +1,6 @@
 .content{
     width: 85%;
-    max-width: 1324px;
+    max-width: 1200px;
     margin: 70px auto 0;
     color: #fff;
 }
@@ -8,16 +8,17 @@
     padding-bottom: 80px;
 }
 .detail h5{
-    margin-bottom: 42px;
-    font-size: 34px;
-    line-height: 48px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 26px;
     font-weight: bold;
     color: #e1eeff;
+    text-align: center;
 }
 .detail p{
     margin-bottom: 25px;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .detail p img{
@@ -29,44 +30,44 @@
     font-size: 0;
 }
 .tips .left a{
-    margin-right: 20px;
+    margin-right: 10px;
     display: inline-block;
-    min-width: 42px;
-    height: 44px;
-    padding: 0 34px;
-    font-size: 24px;
-    line-height: 44px;
+    min-width: 30px;
+    height: 22px;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 22px;
     text-align: center;
-    border: solid 2px #ffbb12;
-    border-radius: 8px;
-    color: #ffbb12;
+    color: #febd68;
+    border-radius: 5px;
+    border: 1px solid #febd68;
 }
 
 .tips .rig{
     float: right;
-    font-size: 24px;
-    line-height: 48px;
+    font-size: 14px;
+    line-height: 24px;
     color: #e1eeff;
 }
 .extra{
     margin-bottom: 45px;
-    border: solid 3px #ffbb10;
+    border: solid 3px #febd68;
 }
 .extra h6{
-    background: #ffbb10;
-    height: 72px;
-    font-size: 24px;
-    padding-left: 70px;
-    line-height: 72px;
+    background: #febd68;
+    height: 38px;
+    font-size: 16px;
+    padding-left: 35px;
+    line-height: 38px;
     color: #02151e;
 }
 .extra ul{
-    padding: 36px 70px 18px;
+    padding: 18px 35px 10px;
 }
 .extra li{
-    margin-bottom: 18px;
-    font-size: 24px;
-    line-height: 30px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -75,5 +76,5 @@
     color: #fff;
 }
 .extra li a:hover{
-    color: #ffbb10;
+    color: #febd68;
 }

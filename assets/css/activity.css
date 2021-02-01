@@ -1,13 +1,13 @@
 
 .content{
     width: 85%;
-    max-width: 1600px;
-    margin: 70px auto 0;
-    padding: 60px 0;
-    background-color: rgb(6,24,30,0.8);
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 40px 0;
+    background-color: rgb(23,24,47,0.8);
 }
 .swiper-box{
-    width: 72%;
+    width: 78%;
     margin: 0 auto;
     position:relative;
     color: #e1eeff;
@@ -17,12 +17,12 @@
     height: 100%;
   }
   .swiper-slide{
-      padding-bottom: 60px;
+      padding-bottom: 40px;
   }
   .swiper-slide h6{
       margin-bottom: 26px;
-      font-size: 34px;
-      line-height: 44px;
+      font-size: 18px;
+      line-height: 26px;
       font-weight: 900;
       text-align: center;
   }
@@ -31,19 +31,19 @@
   }
   .swiper-slide .txt{
       margin-top: 26px;
-    font-size: 22px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 22px;
   }
   
   .swiper-button-prev{
-      left: -12%;
+      left: -10%;
   }
   .swiper-button-next{
-      right: -12%;
+      right: -10%;
   }
   .swiper-pagination-bullet{
-    width: 22px;
-    height: 10px;
+    width: 12px;
+    height: 6px;
     background: #ffbb12;
     opacity: .35;
     border-radius: 0;
@@ -52,13 +52,13 @@
     opacity: 1;
 }
   .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
-      margin: 0 20px;
+      margin: 0 8px;
   }
   .swiper-container-horizontal>.swiper-pagination-bullets{
       bottom: 0;
   }
   .swiper-button-next:after, .swiper-button-prev:after{
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 30px;
+      font-weight: 900;
       color: #8294aa;
   }

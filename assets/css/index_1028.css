@@ -1,5 +1,5 @@
 .content{
-    width: 1440px;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,39 +16,42 @@
     left: 0;
     bottom: 0;
     background: url(../img/light_01.png) center top no-repeat;
+    background-size: 100% 20px;
 }
 .banner-body{
-    width: 1060px;
+    width: 1200px;
     margin: 0 auto;
 }
 .banner-body .left{
     float: left;
-    width: 440px;
+    width: 457px;
 }
 .banner-body .left img{
     width: 100%;
 }
 .banner-body .rig{
     float: right;
-    padding-top: 150px;
-    width: 570px;
+    padding-top: 145px;
+    width: 672px;
 
 }
 .banner-body .rig .btns{
-    margin-top: 12px;
+    margin-top: 22px;
 }
 .banner-body .rig a{
     display: inline-block;
-    width: 220px;
-    height: 56px;
-    font-size: 20px;
-    line-height: 56px;
-    color: #06181e;
-    margin-right: 30px;
-    border-radius: 10px;
+    width: 300px;
+    height: 78px;
+    font-size: 26px;
+    line-height: 78px;
+    color: #17182f;
+    border-radius: 11px;
     font-weight: 600;
-    background-color: #ffbb12;
+    background-color: #febd68;
     text-align: center;
+}
+.banner-body .rig a:last-child{
+    margin-left: 66px;
 }
 .platform{
     margin-top: 50px;
@@ -58,7 +61,7 @@
     text-align: center;
 }
 .tit img{
-    width: 840px;
+    width: 1200px;
 }
 .des{
     margin: 90px auto;
@@ -67,7 +70,6 @@
     color: #fff;
     font-size: 26px;
     line-height: 42px;
-    text-align: center;
 }
 .des p{
     margin-top: 20px;
@@ -82,7 +84,7 @@
     border-radius: 30px;
 }
 .gift .content a:nth-child(2){
-    margin: 0 186px;
+    margin: 0 69px;
 }
 .footer{
     text-align: center;
@@ -163,7 +165,4 @@
     font-weight: bold;
     color: #fff;
     line-height: 40px;
-}
-.footer{
-    margin-top: 120px;
 }
