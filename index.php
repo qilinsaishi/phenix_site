@@ -3,7 +3,7 @@
 <?php require_once "function/init.php";
 $data = [
     "slideImage"=>["dataType"=>"imageList","site_id"=>2,"flag"=>"index_slider","page_size"=>20],
-    "defaultConfig"=>["keys"=>["iphone","word","app_qrcode"],"site_id"=>2],
+    "defaultConfig"=>["keys"=>["iphone","word","app_qrcode","site_desc","ios_url","android_url"],"site_id"=>2],
     "newCustomer"=>["dataType"=>"imageList","site_id"=>2,"flag"=>"ceremony","page_size"=>20],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
@@ -14,7 +14,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <meta name="screen-orientation" content="portrait">
     <meta name="browsermode" content="application">
     <meta name="x5-orientation" content="portrait">
-    <meta name="apple-mobile-web-app-title" content="弹址签发">
+    <meta name="apple-mobile-web-app-title" content="<?php echo $config['site_name'];?>-专业电竞赛事比分分析大数据平台">
     <meta name="format-detection" content="telphone=no, email=no"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache" />
@@ -44,24 +44,24 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <div class="rig">
                 <p><img src="<?php echo $return['defaultConfig']['data']['word']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['word']['name'];?>"></p>
                 <p class="btns">
-                    <a href="" target="_blank">安卓版下载</a>
-                    <a href="" target="_blank">苹果版下载</a>
+                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>" target="_blank"><?php echo $return['defaultConfig']['data']['android_url']['name'];?></a>
+                    <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" target="_blank"><?php echo $return['defaultConfig']['data']['ios_url']['name'];?></a>
                 </p>
             </div>
         </div>
     </div>
     <div class="platform">
-        <h6 class="tit"><img src="./assets/img/title_1.png" alt=""></h6>
+        <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_1.png" alt=""></h6>
         <div id="certify">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php
                     foreach($return["slideImage"]['data'] as $type => $pic)
-                        {?>
+                    {?>
 
-                    <div class="swiper-slide">
-                        <a href="<?php echo $pic['url'];?>"><img alt="<?php echo $pic['name'];?>" title="<?php echo $pic['name'];?>" src="<?php echo $pic['logo'];?>" /></a>
-                    </div>
+                        <div class="swiper-slide">
+                            <a href="<?php echo $pic['url'];?>"><img alt="<?php echo $pic['name'];?>" title="<?php echo $pic['name'];?>" src="<?php echo $pic['logo'];?>" /></a>
+                        </div>
                     <?php }?>
                 </div>
             </div>
@@ -71,26 +71,26 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             
     </div>
     <div class="des">
-        <h6 class="tit"><img src="./assets/img/title_2.png" alt=""></h6>
+        <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_2.png" alt=""></h6>
         <div class="content">
-            <p>麒麟赛事是获得海南政府批复，以赛事竞猜系统为基础，为广大用户发布赛事信息，提供有奖竞猜的赛事服务平台。<br>平台覆盖全球数万场赛事的综合电子竞技服务。</p>
-            <p>平台涵盖英雄联盟（LOL）、DOTA2、CSGO、王者荣耀等热门游戏联赛，包括S赛、LPL、Major、KPL等主流联事，地区性的乙级联赛均有收录。只有没见过，没有找不到的电竞联赛。</p>
-            <p>赛前还有独特对局前瞻分析，通过双方近期的战绩和交手纪录回顾，以及胜率等表现对比，可科学合理地作出比赛预测。</p>
+            <?php echo $return['defaultConfig']['data']['site_desc']['value'];?>
         </div>
     </div>
     <div class="gift">
-        <h6 class="tit"><img src="./assets/img/title_3.png" alt=""></h6>
+        <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_3.png" alt=""></h6>
         <div class="content">
             <?php foreach ($return['newCustomer']['data'] as $key => $image) {?>
-
-            <a href="<?php echo $image['url'];?>"><img src="<?php echo $image['logo'];?>" alt="<?php echo $image['name'];?>"></a>
+                <a href="<?php echo $image['url'];?>"><img src="<?php echo $image['logo'];?>" alt="<?php echo $image['name'];?>"></a>
             <?php }?>
         </div>
     </div>
-    <div class="footer">
-        <p><img src="<?php echo $return['defaultConfig']['data']['app_qrcode']['value'];?>" alt=""></p>
+    <!-- <div class="code">
+        <p><img src="./assets/img/qrcode.jpg" alt=""></p>
         <p class="code">扫一扫这个二维码，参与竞猜赢大礼</p>
-        <?php renderCertification(0);?>    </div>
+    </div> -->
+    <div class="footer">
+        <?php renderCertification(0);?>
+    </div>
 </div>
 <script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
 <script src="<?php echo $config['site_url'];?>/assets/lib/swiper.min.js"></script>
