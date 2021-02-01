@@ -10,13 +10,34 @@ $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
     "player"=>"playerdetail/",
 ];
-$return["information"]['data']['scws_list'] = json_decode($return["information"]['data']['scws_list'],true);
-$ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
-$ids = count($ids)>0?implode(",",$ids):"0";
+$return["information"]['data']['keywords_list'] = json_decode($return["information"]['data']['keywords_list'],true);
+$keywordsList = [];
+if(is_array($return["information"]['data']['keywords_list']))
+{
+    foreach($return["information"]['data']['keywords_list'] as $type => $list)
+    {
+        foreach($list as $word => $wordInfo)
+        {
+            if(isset($keywordsList[$word]))
+            {
+                if($wordInfo['count']>$keywordsList[$word]['count'])
+                {
+                    $keywordsList[$word] = ["word"=>$word,"id"=>$wordInfo['id'],"type"=>$type,"count"=>$wordInfo['count'],'url'=>$urlList[$type].$wordInfo['id']];
+                }
+            }
+            else
+            {
+                $keywordsList[$word] = ["word"=>$word,"id"=>$wordInfo['id'],"type"=>$type,"count"=>$wordInfo['count'],'url'=>$urlList[$type].$wordInfo['id']];
+            }
+        }
+    }
+}
+array_multisort(array_combine(array_keys($keywordsList),array_column($keywordsList,"count")),SORT_DESC,$keywordsList);
 $data2 = [
-    "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>3,/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*","expect_id"=>$id],
-    "infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>3,
-        "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
+    "infoListWithGame"=>["dataType"=>"informationList","game"=>$return['information']['data']['game'],"page"=>1,"page_size"=>4,
+        "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title"],
+    "infoList"=>["dataType"=>"informationList","page"=>1,"page_size"=>4,
+        "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5","fields"=>"id,title"],
 ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
 ?>
@@ -45,19 +66,23 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
     <div class="content">
         <div class="detail">
             <h5><?php echo $return['information']['data']['title'];?></h5>
+            <p>
+                <img src="<?php echo $return['information']['data']['logo'];?>" alt="<?php echo $return['information']['data']['title'];?>">
+            </p>
             <p><?php echo $return['information']['data']['content'];?></p>
             <div class="tips clearfix">
                 <span class="left">
-                        <?php
-                        $i = 1;
-                        foreach($return["information"]['data']['scws_list'] as $info)
+                    <?php
+                    $i = 1;
+                    foreach($keywordsList as $word => $info)
+                    {
+                        if($i<=3)
                         {
-                            if($i<=3)
-                            {
-                                echo '<a href="'.$config['site_url'].'/scws/'.urlencode($info['keyword_id']).'/1">'.$info['word'].'</a>';
-                            }
-                            $i++;
-                        }?>
+                            echo '<a href="##">'.$info['word'].'</a>';
+                            //echo '<a href="'.$config['site_url'].'/'.$info['url'].'">'.$info['word'].'</a>';
+                        }
+                        $i++;
+                    }?>
                 </span>
                 <span class="rig">
                         <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
@@ -70,30 +95,28 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 <ul>
                     <?php
                     $i = 1;
-                    foreach($return2['ConnectInformationList']['data'] as $key => $value) {
-                        if($value['content']['id']!=$id && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
-                            <?php $i++;}}?>
+                    foreach($return2['ConnectInformationList']['data'] as $value)) {
+                        if($value['id']!=$return['information']['data']['id'] && $i<=3){?>
+                            <li><a href="<?php echo $config['site_url'];?>newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
+                        <?php $i++;}}?>
                 </ul>
             </div>
         </div>
         <div class="extra">
-            <h6>最新资讯</h6>
+            <h6>热门资讯</h6>
             <div>
                 <ul>
                     <?php
                     $i = 1;
                     foreach($return2['infoList']['data'] as $key => $value) {
                         if($value['id']!=$return['information']['data']['id'] && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
-                            <?php $i++;}}?>
+                            <li><a href="<?php echo $config['site_url'];?>newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
+                        <?php $i++;}}?>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>
-    </div>
+    <?php renderCertification();?>
 </div>
 </body>
 </html>

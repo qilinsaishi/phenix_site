@@ -26,7 +26,7 @@
 <div class="container">
     <?php generateNav($config,"game");?>
     <div class="content">
-        <img src="<?php echo $config['site_url'];?>/assets/img/fix.jpg" alt="">
+        <img src="./assets/img/fix.jpg" alt="">
     </div>
     <?php renderCertification();?>
 </div>
