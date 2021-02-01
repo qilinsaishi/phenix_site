@@ -35,7 +35,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     <meta name="description" content="<?php echo $config['site_name'];?>提供热门电竞行业赛事资讯，电子竞技比赛新闻，了解电竞赛事资讯新闻，关注<?php echo $config['site_name'];?>。">
     <meta name=”Keywords” Content=”电竞赛事资讯,电竞比赛资讯″>
     <link rel="stylesheet" href="<?php echo $config['site_url'];?>/assets/css/common.css">
-    <link rel="stylesheet" href="<?php echo $config['site_url'];?>/assets/css/news.css">
+    <link rel="stylesheet" href="<?php echo $config['site_url'];?>/assets/css/news2.css">
 </head>
 <body>
 <div class="container">
@@ -51,7 +51,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
                     </div>
                     <div class="rig">
                         <h6>
-                            <?php echo $value['content']['title'];?>
+                            <a class="more" href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a>
                         </h6>
                         <p>
                             <?php echo mb_str_split($value['content']['content'],100);?>
