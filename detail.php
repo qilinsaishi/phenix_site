@@ -45,9 +45,11 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
     <div class="content">
         <div class="detail">
             <h5><?php echo $return['information']['data']['title'];?></h5>
+            <!--
             <p>
                 <img src="<?php echo $return['information']['data']['logo'];?>" alt="<?php echo $return['information']['data']['title'];?>">
             </p>
+            -->
             <p><?php echo $return['information']['data']['content'];?></p>
             <div class="tips clearfix">
                 <span class="left">
@@ -88,7 +90,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                     $i = 1;
                     foreach($return2['infoList']['data'] as $key => $value) {
                         if($value['id']!=$return['information']['data']['id'] && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
+                            <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
                             <?php $i++;}}?>
                 </ul>
             </div>

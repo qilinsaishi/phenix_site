@@ -19,7 +19,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     <meta name="screen-orientation" content="portrait">
     <meta name="browsermode" content="application">
     <meta name="x5-orientation" content="portrait">
-    <meta name="apple-mobile-web-app-title" content="弹址签发">
+    <meta name="apple-mobile-web-app-title" content="热门资讯-<?php echo $config['site_name'];?>，专业电竞赛事比分分析大数据平台">
     <meta name="format-detection" content="telphone=no, email=no"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache" />
@@ -39,28 +39,28 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     <?php generateNav($config,"news");?>
     <div class="content">
         <ul class="list">
-
-                <?php foreach($return['informationList']['data'] as $key => $value) {?>
-                    <li>
-                        <div class="left">
-                            <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">
-                                <img src="<?php echo $value['logo'];?>" alt="<?php echo $value['title'];?>">
-                            </a>
+            <?php foreach($return['informationList']['data'] as $key => $value) {?>
+                <li>
+                    <div class="left">
+                        <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">
+                            <img src="<?php echo $value['logo'];?>" alt="<?php echo $value['title'];?>">
+                        </a>
+                    </div>
+                    <div class="rig">
+                        <h6>
+                            <?php echo $value['title'];?>
+                        </h6>
+                        <p>
+                            <?php echo mb_str_split($value['content'],100);?>
+                        </p>
+                        <div class="clearfix">
+                            <a class="more" href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">More</a>
+                            <span><?php echo substr((($value["type"]==2)?$value['site_time']:$value['create_time']),0,10);?></span>
                         </div>
-                        <div class="rig">
-                            <h6>
-                                <?php echo $value['title'];?>
-                            </h6>
-                            <p>
-                                <?php echo mb_str_split($value['content'],100);?>
-                            </p>
-                            <div class="clearfix">
-                                <a class="more" href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">More</a>
-                                <span><?php echo substr((($value["type"]==2)?$value['site_time']:$value['create_time']),0,10);?></span>
-                            </div>
-                        </div>
-                    </li>
-                <?php }?>
+                    </div>
+                </li>
+            <?php }?>
+            
         </ul>
         <div class="pagination-wrapper">
             <?php render_page_pagination($info['page']['total_count'],$info['page']['page_size'],$page,$config['site_url']."/newslist"); ?>
