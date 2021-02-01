@@ -7,7 +7,7 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="browsermode" content="application">
     <meta name="x5-orientation" content="portrait">
-    <meta name="apple-mobile-web-app-title" content="弹址签发">
+    <meta name="apple-mobile-web-app-title" content="关于我们-<?php echo $config['site_name'];?>，专业电竞赛事比分分析大数据平台">
     <meta name="format-detection" content="telphone=no, email=no"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache" />
