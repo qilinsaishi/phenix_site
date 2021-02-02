@@ -164,7 +164,7 @@
         {
             echo '    <div class="footer">';
         }
-        echo '<p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>';
+        echo '<p class="copyright">网络文化经营许可证：琼网文〔2015〕2197-011号     琼ICP备19001306号-5</p>';
         if($withHead == 1)
         {
             echo '</div>';
