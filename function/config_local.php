@@ -4,6 +4,7 @@ $base_config = [
     'site_name'=>"麒麟赛事",
     'api_url'=>'http://lol_api.querylist.cn',//api站点URL
     'site_url'=>'http://info.phenix.com',//本站URl
+    'site_m_url'=>'http://m.phenix.com/',//本站移动端URl
     'game_name'=>"英雄联盟",
     'game'=>"lol",
 ];

@@ -4,6 +4,7 @@ $base_config = [
     'site_name'=>"凤凰电竞",
     'api_url'=>'http://dev_lol_api.querylist.cn',//api站点URL
     'site_url'=>'http://dev.phenix.com',//本站URl
+    'site_m_url'=>'http://m.phenix.com/',//本站移动端URl
 ];
 
 $additional_config = [
