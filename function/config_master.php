@@ -3,7 +3,7 @@
 $base_config = [
     'site_name'=>"凤凰电竞",
     'api_url'=>'http://api.qilindianjing.com',//api站点URL
-    'site_url'=>'http://www.kiringames.cn/',//本站URl
+    'site_url'=>'http://www.kiringames.cn',//本站URl
     'site_m_url'=>'http://m.kiringames.cn/',//本站移动端URl
     'game_name'=>"英雄联盟",
     'game'=>"lol",
