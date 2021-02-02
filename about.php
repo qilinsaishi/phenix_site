@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once "function/init.php";?>
+<?php require_once "function/init.php";
+$data = [
+    "defaultConfig"=>["keys"=>["iphone","word","app_qrcode","site_desc","ios_url","android_url","aboutus","introduction","aboutus","contact"],"site_id"=>2],
+];
+$return = curl_post($config['api_get'],json_encode($data),1);
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -28,13 +33,13 @@
     <?php generateNav($config,"aboutus");?>
     <div class="content clearfix">
          <div class="left">
-            <img src="https://dummyimage.com/480x274/ff6600/fff" alt="">
+            <img src="<?php echo $return['defaultConfig']['data']['aboutus']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['aboutus']['name'];?>">
          </div>
          <div class="rig">
             <h6 class="tit"><img src="./assets/img/title1.png" alt=""></h6>
-            <p>
-                企业简介是对企业综合实力进行的全面、概括的介绍，内容涉及企业的经营范围，固定资产规模、主要的经济技术指标（产品年销售量、年利润、市场占有率等） 、技术工艺和技术装备水平、经营管理运作模式。 企业发展现状及取得的成绩，在所属行业领域里的地位和影响力及企业文化的核心内容等。
-            </p>
+            
+               <?php echo html_entity_decode($return['defaultConfig']['data']['aboutus']['remarks']);?>
+            
          </div>
          <div class="light"></div>
     </div>
@@ -42,23 +47,21 @@
         <div class="left">
            <h6 class="tit"><img src="./assets/img/title2.png" alt=""></h6>
            <p>
-                中国电竞从燃起希望之火到遭到冷漠，再到现在的飞速发展已经历十多个年头。路漫漫其修远兮，中国电竞还需上下求索。真正热爱的电竞的人们不妨从自己做起，用自己的行动改善电竞的环境，让更多的人能接受电子竞技。正如WCG一直以来的主题曲“beyond the game”所表达的概念：超越游戏、超越自我。
+               <?php echo html_entity_decode($return['defaultConfig']['data']['introduction']['remarks']);?>
            </p>
         </div>
         <div class="rig">
-           <img src="https://dummyimage.com/480x274/380f7e/fff" alt="">
+           <img src="<?php echo $return['defaultConfig']['data']['introduction']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['introduction']['name'];?>">
         </div>
         <div class="light"></div>
    </div>
     <div class="content  clearfix">
         <div class="left">
-           <img src="https://dummyimage.com/480x274/be5086/fff" alt="">
+           <img src="<?php echo $return['defaultConfig']['data']['contact']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['contact']['name'];?>">
         </div>
         <div class="rig">
            <h6 class="tit"><img src="./assets/img/title3.png" alt=""></h6>
-           <p>
-               企业简介是对企业综合实力进行的全面、概括的介绍，内容涉及企业的经营范围，固定资产规模、主要的经济技术指标（产品年销售量、年利润、市场占有率等） 、技术工艺和技术装备水平、经营管理运作模式。 企业发展现状及取得的成绩，在所属行业领域里的地位和影响力及企业文化的核心内容等。
-           </p>
+           <?php echo html_entity_decode($return['defaultConfig']['data']['contact']['remarks']);?>
         </div>
         <div class="light"></div>
    </div>
