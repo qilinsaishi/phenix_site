@@ -4,4 +4,5 @@
         rewrite  ^/activity  /activity.php  last;
         rewrite  ^/aboutus  /about.php  last;
         rewrite  ^/scws/(.*)/(.*)$  /scws.php?ids=$1&page=$2?  last;
+        rewrite  ^/404  /404.php  last;
         rewrite  ^/index  /index.php  last;
