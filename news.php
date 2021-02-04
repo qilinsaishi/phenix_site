@@ -59,7 +59,9 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
                         </div>
                     </div>
                 </li>
-            <?php }}?>
+            <?php }}else{
+				header('location:'.$config['site_url'] . '/' . '404');exit;
+			}?>
             
         </ul>
         <div class="pagination-wrapper">

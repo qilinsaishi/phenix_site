@@ -58,7 +58,9 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                                 echo '<a href="'.$config['site_url'].'/scws/'.urlencode($info['keyword_id']).'/1">'.$info['word'].'</a>';
                             }
                             $i++;
-                        }}?>
+                        }}else{
+							header('location:'.$config['site_url'] . '/' . '404');exit;
+						}?>
                 </span>
                 <span class="rig">
                         <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
