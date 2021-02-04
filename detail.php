@@ -49,6 +49,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
             <div class="tips clearfix">
                 <span class="left">
                         <?php
+						ob_start(); 
                         $i = 1;
 						if(isset($return["information"]['data']['scws_list']) && $return["information"]['data']['scws_list']){
                         foreach($return["information"]['data']['scws_list'] as $info)
@@ -59,7 +60,8 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                             }
                             $i++;
                         }}else{
-							header('location:'.$config['site_url'] . '/' . '404');exit;
+							header('location:'.$config['site_url'] . '/' . '404');exit();
+							ob_end_flush();
 						}?>
                 </span>
                 <span class="rig">
