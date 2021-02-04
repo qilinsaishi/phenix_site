@@ -61,8 +61,8 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                             $i++;
                         }}else{
 							header('location:'.$config['site_url'] . '/' . '404');exit();
-							ob_end_flush();
-						}?>
+							
+						} ob_end_flush(); ?>
                 </span>
                 <span class="rig">
                         <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>

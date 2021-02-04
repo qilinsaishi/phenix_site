@@ -39,7 +39,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     <?php generateNav($config,"news");?>
     <div class="content">
         <ul class="list">
-            <?php if(!empty($return['informationList']['data'])){ foreach($return['informationList']['data'] as $key => $value) {?>
+            <?php ob_start();  if(!empty($return['informationList']['data'])){ foreach($return['informationList']['data'] as $key => $value) {?>
                 <li>
                     <div class="left">
                         <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">
@@ -61,7 +61,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
                 </li>
             <?php }}else{
 				header('location:'.$config['site_url'] . '/' . '404');exit;
-			}?>
+			} ob_end_flush(); ?>
             
         </ul>
         <div class="pagination-wrapper">
