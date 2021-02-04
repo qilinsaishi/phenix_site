@@ -56,13 +56,14 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php
+					if(isset($return["slideImage"]['data']) && $return["slideImage"]['data']){
                     foreach($return["slideImage"]['data'] as $type => $pic)
                     {?>
 
                         <div class="swiper-slide">
                             <a href="<?php echo $pic['url'];?>"><img alt="<?php echo $pic['name'];?>" title="<?php echo $pic['name'];?>" src="<?php echo $pic['logo'];?>" /></a>
                         </div>
-                    <?php }?>
+                    <?php }}?>
                 </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -79,9 +80,9 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <div class="gift">
         <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_3.png" alt=""></h6>
         <div class="content">
-            <?php foreach ($return['newCustomer']['data'] as $key => $image) {?>
+            <?php if(isset($return['newCustomer']['data']) && $return['newCustomer']['data']){ foreach ($return['newCustomer']['data'] as $key => $image) {?>
                 <a href="<?php echo $image['url'];?>"><img src="<?php echo $image['logo'];?>" alt="<?php echo $image['name'];?>"></a>
-            <?php }?>
+            <?php }}?>
         </div>
     </div>
     <!-- <div class="code">

@@ -11,7 +11,7 @@ $urlList = ["hero"=>"herodetail/",
     "player"=>"playerdetail/",
 ];
 $return["information"]['data']['scws_list'] = json_decode($return["information"]['data']['scws_list'],true);
-$ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
+$ids = !empty($return["information"]['data']['scws_list']) ? array_column($return["information"]['data']['scws_list'],"keyword_id"):[];
 $ids = count($ids)>0?implode(",",$ids):"0";
 $data2 = [
     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>3,/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*","expect_id"=>$id],
@@ -50,6 +50,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 <span class="left">
                         <?php
                         $i = 1;
+						if(isset($return["information"]['data']['scws_list']) && $return["information"]['data']['scws_list']){
                         foreach($return["information"]['data']['scws_list'] as $info)
                         {
                             if($i<=3)
@@ -57,7 +58,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                                 echo '<a href="'.$config['site_url'].'/scws/'.urlencode($info['keyword_id']).'/1">'.$info['word'].'</a>';
                             }
                             $i++;
-                        }?>
+                        }}?>
                 </span>
                 <span class="rig">
                         <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
@@ -70,10 +71,11 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 <ul>
                     <?php
                     $i = 1;
+					if(isset($return2['ConnectInformationList']['data']) && $return2['ConnectInformationList']['data']){
                     foreach($return2['ConnectInformationList']['data'] as $key => $value) {
                         if($value['content']['id']!=$id && $i<=3){?>
                             <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
-                            <?php $i++;}}?>
+					<?php $i++;}}}?>
                 </ul>
             </div>
         </div>
@@ -83,10 +85,11 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 <ul>
                     <?php
                     $i = 1;
+					if(isset($return2['infoList']['data']) && $return2['infoList']['data']){
                     foreach($return2['infoList']['data'] as $key => $value) {
                         if($value['id']!=$return['information']['data']['id'] && $i<=3){?>
                             <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
-                            <?php $i++;}}?>
+					<?php $i++;}}}?>
                 </ul>
             </div>
         </div>

@@ -38,6 +38,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 					<?php
+					if(isset($return["slideImage"]['data']) && $return["slideImage"]['data']){
                     foreach($return["slideImage"]['data'] as $type => $pic)
                     {?>
 						<div class="swiper-slide">
@@ -52,7 +53,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                     </div>
 
                         
-                    <?php }?>
+                    <?php }}?>
                     
                     
                 </div>
