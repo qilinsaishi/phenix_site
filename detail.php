@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once "function/init.php";
+<?php 
+require_once "function/init.php";
 $id = $_GET['id']??1;
 $data = [
     "information"=>[$id],
@@ -19,6 +20,10 @@ $data2 = [
         "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
 ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
+if(empty($return['information']['data']['content'])){
+	header('location:'.$config['site_url'] . '/' . '404');exit();
+}
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -49,7 +54,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
             <div class="tips clearfix">
                 <span class="left">
                         <?php
-						ob_start(); 
+						
                         $i = 1;
 						if(isset($return["information"]['data']['scws_list']) && $return["information"]['data']['scws_list']){
                         foreach($return["information"]['data']['scws_list'] as $info)
@@ -59,10 +64,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                                 echo '<a href="'.$config['site_url'].'/scws/'.urlencode($info['keyword_id']).'/1">'.$info['word'].'</a>';
                             }
                             $i++;
-                        }}else{
-							header('location:'.$config['site_url'] . '/' . '404');exit();
-							
-						} ob_end_flush(); ?>
+                        }}?>
                 </span>
                 <span class="rig">
                         <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
@@ -102,5 +104,6 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
         <p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>
     </div>
 </div>
+
 </body>
 </html>
