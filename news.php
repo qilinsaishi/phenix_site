@@ -1,4 +1,4 @@
-<?php 
+<?php
 ob_start(); //打开缓冲区
 require_once "function/init.php";
 //error_reporting(1);
@@ -11,8 +11,7 @@ $data = [
     "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-if(count($return['informationList']['data'])>0){
-	//echo "here";
+if(!isset($return['informationList']['data'])){
 	return header('location:'.$config['site_url'] . '/' . '404');exit;
 }
 $info['page']['total_count'] = $return['informationList']['count'];
