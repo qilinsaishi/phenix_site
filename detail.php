@@ -20,9 +20,7 @@ $data2 = [
         "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
 ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
-if(empty($return['information']['data']['content'])){
-	header('location:'.$config['site_url'] . '/' . '404');exit();
-}
+$lenth=strlen($return['information']['data']['title']) ?? 0;
 
 ?>
 <head>
@@ -104,6 +102,16 @@ if(empty($return['information']['data']['content'])){
         <p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>
     </div>
 </div>
-
+<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
+<script type="text/javascript">
+//init method one
+$(document).ready(function(){
+	var len=<?php echo $lenth ?>;
+	if(len==0){
+		window.location.href="<?php echo $config['site_url']; ?>/404";
+	}
+	
+});
+</script>
 </body>
 </html>

@@ -11,11 +11,9 @@ $data = [
     "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-$info['page']['total_count'] = $return['informationList']['count'];
+$info['page']['total_count'] = $return['informationList']['count'] ?? 0;
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
-if(empty($return['informationList']['data'])){
-	header('location:'.$config['site_url'] . '/' . '404');exit();
-}
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -72,5 +70,17 @@ if(empty($return['informationList']['data'])){
     </div>
     <?php renderCertification();?>
 </div>
+<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
+<script type="text/javascript">
+//init method one
+$(document).ready(function(){
+	var count=<?php echo $info['page']['total_count']; ?>;
+	if(count==0){
+		window.location.href="<?php echo $config['site_url']; ?>/404";
+	}
+	
+});
+
+</script>
 </body>
 </html>
