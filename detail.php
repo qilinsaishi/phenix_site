@@ -6,7 +6,7 @@ $id = $_GET['id']??1;
 $data = [
     "information"=>[$id],
 ];
-$return = curl_post($config['api_get'],json_encode($data),1);
+$return = curl_post($config['api_get'],json_encode($data),1);//print_r(count($return['information']['data']));exit;
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
     "player"=>"playerdetail/",

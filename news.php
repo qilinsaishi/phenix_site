@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-require_once "function/init.php";
+<?php require_once "function/init.php";
 $info['page']['page_size'] = 5;
 $page = $_GET['page']??1;
 if($page==''){
@@ -11,9 +10,11 @@ $data = [
     "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-$info['page']['total_count'] = $return['informationList']['count'] ?? 0;
+if(empty($return['informationList']['data'])){
+	return header('location:'.$config['site_url'] . '/' . '404');exit;
+}
+$info['page']['total_count'] = $return['informationList']['count'];
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
-
 ?>
 <head>
     <meta charset="utf-8">
@@ -41,7 +42,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     <?php generateNav($config,"news");?>
     <div class="content">
         <ul class="list">
-            <?php   if(!empty($return['informationList']['data'])){ foreach($return['informationList']['data'] as $key => $value) {?>
+            <?php   foreach($return['informationList']['data'] as $key => $value) {?>
                 <li>
                     <div class="left">
                         <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">
@@ -61,7 +62,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
                         </div>
                     </div>
                 </li>
-            <?php }}?>
+            <?php }?>
             
         </ul>
         <div class="pagination-wrapper">
@@ -70,17 +71,5 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
     </div>
     <?php renderCertification();?>
 </div>
-<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
-<script type="text/javascript">
-//init method one
-$(document).ready(function(){
-	var count=<?php echo $info['page']['total_count']; ?>;
-	if(count==0){
-		window.location.href="<?php echo $config['site_url']; ?>/404";
-	}
-	
-});
-
-</script>
 </body>
 </html>
