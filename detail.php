@@ -48,7 +48,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
     <div class="content">
         <div class="detail">
             <h5><?php echo $return['information']['data']['title'];?></h5>
-            <p><?php echo $return['information']['data']['content'];?></p>
+            <p><?php echo html_entity_decode($return['information']['data']['content']);?></p>
             <div class="tips clearfix">
                 <span class="left">
                         <?php
