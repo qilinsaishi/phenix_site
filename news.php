@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once "function/init.php";
-error_reporting(1);
+<?php 
+ob_start(); //打开缓冲区
+require_once "function/init.php";
+//error_reporting(1);
 $info['page']['page_size'] = 5;
 $page = $_GET['page']??1;
 if($page==''){
@@ -11,13 +11,17 @@ $data = [
     "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-if(empty($return['informationList']['data'])){
-	echo "here";
-	//return header('location:'.$config['site_url'] . '/' . '404');exit;
+if(count($return['informationList']['data'])>0){
+	//echo "here";
+	return header('location:'.$config['site_url'] . '/' . '404');exit;
 }
 $info['page']['total_count'] = $return['informationList']['count'];
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
+
+ob_end_flush();//输出全部内容到浏览器
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
