@@ -222,13 +222,13 @@ function is_mobile()
     return false;
 
 }
-function render404Redirect($data){
-	if(empty($data)){
-		return header('location:'.$config['site_url'] . '/' . '404');exit;
-		//echo '</script>';
-		//return;
+function render404($data){
+	if(!isset($data) || (isset($data) && count($data)<=0)){
+		if(!isset($return['informationList']['data'])){
+			return header('location:'.$config['site_url'] . '/' . '404');exit;
+		}
 	}
-
+	return true;
 }
 
 ?>
