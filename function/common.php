@@ -222,7 +222,7 @@ function is_mobile()
     return false;
 
 }
-function render404($data){
+function render404($data,$config){
 	if(!isset($data) || (isset($data) && count($data)<=0)){
 		if(!isset($return['informationList']['data'])){
 			return header('location:'.$config['site_url'] . '/' . '404');exit;

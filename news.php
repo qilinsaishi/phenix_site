@@ -12,7 +12,7 @@ $data = [
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 
-render404($return['informationList']['data']);//404跳转
+render404($return['informationList']['data'],$config);//404跳转
 $info['page']['total_count'] = $return['informationList']['count'];
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
 

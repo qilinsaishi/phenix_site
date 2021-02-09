@@ -5,7 +5,7 @@ $data = [
     "information"=>[$id],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-render404($return['information']['data']);//404跳转
+render404($return['information']['data'],$config);//404跳转
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
     "player"=>"playerdetail/",
