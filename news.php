@@ -1,5 +1,5 @@
 <?php
-ob_start(); //打开缓冲区
+//ob_start(); //打开缓冲区
 require_once "function/init.php";
 //error_reporting(1);
 $info['page']['page_size'] = 5;
@@ -11,13 +11,12 @@ $data = [
     "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
-if(!isset($return['informationList']['data'])){
-	return header('location:'.$config['site_url'] . '/' . '404');exit;
-}
+
+render404($return['informationList']['data'],$config);//404跳转
 $info['page']['total_count'] = $return['informationList']['count'];
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
 
-ob_end_flush();//输出全部内容到浏览器
+//ob_end_flush();//输出全部内容到浏览器
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php 
 require_once "function/init.php";
 $id = $_GET['id']??1;
 $data = [
     "information"=>[$id],
 ];
-$return = curl_post($config['api_get'],json_encode($data),1);//print_r(count($return['information']['data']));exit;
+$return = curl_post($config['api_get'],json_encode($data),1);
+render404($return['information']['data'],$config);//404跳转
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
     "player"=>"playerdetail/",
@@ -20,9 +19,10 @@ $data2 = [
         "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
 ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
-$lenth=strlen($return['information']['data']['title']) ?? 0;
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -48,7 +48,7 @@ $lenth=strlen($return['information']['data']['title']) ?? 0;
     <div class="content">
         <div class="detail">
             <h5><?php echo $return['information']['data']['title'];?></h5>
-            <p><?php echo $return['information']['data']['content'];?></p>
+            <p><?php echo html_entity_decode($return['information']['data']['content']);?></p>
             <div class="tips clearfix">
                 <span class="left">
                         <?php
@@ -102,16 +102,6 @@ $lenth=strlen($return['information']['data']['title']) ?? 0;
         <p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>
     </div>
 </div>
-<script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
-<script type="text/javascript">
-//init method one
-$(document).ready(function(){
-	var len=<?php echo $lenth ?>;
-	if(len==0){
-		window.location.href="<?php echo $config['site_url']; ?>/404";
-	}
-	
-});
-</script>
+
 </body>
 </html>
