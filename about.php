@@ -4,7 +4,7 @@
 $data = [
     "defaultConfig"=>["keys"=>["iphone","word","app_qrcode","site_desc","ios_url","android_url","aboutus","introduction","aboutus","contact"],"site_id"=>2],
 ];
-$return = curl_post($config['api_get'],json_encode($data),1);
+$return = curl_post($config['api_get'],json_encode($data),1);print_r($return  );exit;
 
 
 ?>

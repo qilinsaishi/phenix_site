@@ -8,7 +8,7 @@ $data = [
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 
-render404($return['slideImage']['data']);//404跳转
+//render404($return['slideImage']['data']);//404跳转
 ?>
 <head>
     <meta charset="utf-8">
