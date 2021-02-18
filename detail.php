@@ -102,6 +102,6 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
         <p class="copyright">增值电信业务经营许可证：沪B2-20200299沪ICP备15052255号-1 沪公网安备 31011202012378号</p>
     </div>
 </div>
-
+<script src="<?php echo $config['site_url'];?>/assets/js/tongji.js"></script>
 </body>
 </html>

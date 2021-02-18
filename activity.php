@@ -72,5 +72,6 @@ $return = curl_post($config['api_get'],json_encode($data),1);
 <script src="<?php echo $config['site_url'];?>/assets/lib/jquery.min.js"></script>
 <script src="<?php echo $config['site_url'];?>/assets/lib/swiper.min.js"></script>
 <script src="<?php echo $config['site_url'];?>/assets/js/activity.js"></script>
+<script src="<?php echo $config['site_url'];?>/assets/js/tongji.js"></script>
 </body>
 </html>

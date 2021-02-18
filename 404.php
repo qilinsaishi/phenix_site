@@ -29,5 +29,6 @@
     </div>
     <?php renderCertification();?>
 </div>
+<script src="<?php echo $config['site_url'];?>/assets/js/tongji.js"></script>
 </body>
 </html>

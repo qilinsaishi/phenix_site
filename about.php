@@ -68,5 +68,6 @@ $return = curl_post($config['api_get'],json_encode($data),1);
    </div>
     <?php renderCertification();?>
 </div>
+<script src="<?php echo $config['site_url'];?>/assets/js/tongji.js"></script>
 </body>
 </html>
