@@ -8,7 +8,7 @@ if($page==''){
     $page=1;
 }
 $data = [
-    "informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
+    "informationList"=>["page"=>$page,"game"=>$config['game'],"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 

@@ -108,12 +108,7 @@ function generateNav($config, $current = "index")
                 <a href="' . $config['site_url'] . '"><img src="' . $config['site_url'] . '/assets/img/logo.png" alt=""></a>
                 <div class="head-body">
                     <ul class="clearfix">';
-    $navList = [
-        'news' => ['url' => 'newslist/', "name" => "热门资讯"],
-        'game' => ['url' => 'game', "name" => "赛事赛程"],
-        'activity' => ['url' => 'activity', "name" => "最新活动"],
-        'aboutus' => ['url' => 'aboutus', "name" => "关于我们"],
-    ];
+    $navList = $config['navList'];
     foreach ($navList as $key => $value) {
         if ($key == $current) {
             echo '<li class="sel"><a href="' . $config['site_url'] . '/' . $value['url'] . '">' . $value['name'] . '</a></li>';
