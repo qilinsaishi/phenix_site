@@ -7,7 +7,7 @@ $data = [
     "recent"=>3600,
 ];
 $return = curl_post($config['api_sitemap'],json_encode($data),1);
-$type = "newsdetail";
+$type = "detail";
 foreach($return[$type] as $key)
 {
     $urlList[] = $config['site_url']."/".$type."/".$key;
