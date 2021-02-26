@@ -49,19 +49,19 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
             <?php   foreach($return['informationList']['data'] as $key => $value) {?>
                 <li>
                     <div class="left">
-                        <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">
+                        <a href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">
                             <img src="<?php echo $value['logo'];?>" alt="<?php echo $value['title'];?>">
                         </a>
                     </div>
                     <div class="rig">
                         <h6>
-                            <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
+                            <a href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                         </h6>
                         <p>
                             <?php echo mb_str_split($value['content'],100);?>
                         </p>
                         <div class="clearfix">
-                            <a class="more" href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>">More</a>
+                            <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">More</a>
                             <span><?php echo substr((($value["type"]==2)?$value['site_time']:$value['create_time']),0,10);?></span>
                         </div>
                     </div>

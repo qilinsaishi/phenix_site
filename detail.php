@@ -78,7 +78,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
 					if(isset($return2['ConnectInformationList']['data']) && $return2['ConnectInformationList']['data']){
                     foreach($return2['ConnectInformationList']['data'] as $key => $value) {
                         if($value['content']['id']!=$id && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
+                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
 					<?php $i++;}}}?>
                 </ul>
             </div>
@@ -92,7 +92,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
 					if(isset($return2['infoList']['data']) && $return2['infoList']['data']){
                     foreach($return2['infoList']['data'] as $key => $value) {
                         if($value['id']!=$return['information']['data']['id'] && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
+                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
 					<?php $i++;}}}?>
                 </ul>
             </div>
