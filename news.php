@@ -58,7 +58,7 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
                             <a href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                         </h6>
                         <p>
-                            <?php echo mb_str_split($value['content'],100);?>
+                            <?php echo mb_str_split(html_entity_decode($value['content']),100);?>
                         </p>
                         <div class="clearfix">
                             <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">More</a>

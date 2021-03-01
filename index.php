@@ -74,7 +74,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <div class="des">
         <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_2.png" alt=""></h6>
         <div class="content">
-            <?php echo $return['defaultConfig']['data']['site_desc']['value'];?>
+            <?php echo html_entity_decode($return['defaultConfig']['data']['site_desc']['value']);?>
         </div>
     </div>
     <div class="gift">
