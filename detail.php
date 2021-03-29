@@ -38,7 +38,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no, viewport-fit=cover"/>
-    <title><?php echo $return['information']['data']['title'];?></title>
+    <title><?php echo $return['information']['data']['title'];?>-<?php echo $config['site_name'];?></title>
     <link rel="stylesheet" href="<?php echo $config['site_url'];?>/assets/css/common.css">
     <link rel="stylesheet" href="<?php echo $config['site_url'];?>/assets/css/detail.css">
 </head>
