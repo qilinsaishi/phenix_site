@@ -139,7 +139,7 @@ function renderCertification($withHead = 1)
     if ($withHead == 1) {
         echo '    <div class="footer">';
     }
-    echo '<p class="copyright">网络文化经营许可证：琼网文〔2015〕2197-011号     <a href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19001306号-5</a></p>';
+    echo '<p class="copyright">网络文化经营许可证：琼网文〔2015〕2197-011号     <a style="color:white;" href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19001306号-5</a></p>';
     if ($withHead == 1) {
         echo '</div>';
     }
