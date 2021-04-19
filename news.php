@@ -1,21 +1,25 @@
 <?php
 //ob_start(); //打开缓冲区
 require_once "function/init.php";
-//error_reporting(1);
+$reset = $_GET['reset']??0;
 $info['page']['page_size'] = 5;
 $page = $_GET['page']??1;
 if($page==''){
     $page=1;
 }
 $data = [
-    "informationList"=>["page"=>$page,"game"=>$config['game'],"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
+    "informationList"=>["page"=>$page,"game"=>$config['game'],"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*","reset"=>intval($reset)],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 
-render404($return['informationList']['data'],$config);//404跳转
 $info['page']['total_count'] = $return['informationList']['count'];
 $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
-
+if($reset>0)
+{
+    print_r(array_column($return["informationList"]['data'],"id"));
+    echo "refreshed";
+    die();
+}
 //ob_end_flush();//输出全部内容到浏览器
 ?>
 <!DOCTYPE html>
