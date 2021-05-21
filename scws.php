@@ -10,7 +10,7 @@ if($page==''){
 $data = [
     "scwsKeyword"=>[$ids],
     //"informationList"=>["page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>"1,2,3,5","fields"=>"*"],
-    "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*"],
+    "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"site"=>1,"page"=>$page,"page_size"=>$info['page']['page_size'],/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*"],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 $info['page']['total_count'] = $return['informationList']['count'];
