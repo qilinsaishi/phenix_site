@@ -65,7 +65,10 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                         }}?>
                 </span>
                 <span class="rig">
-                        <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
+                        <?php
+							$create_time=($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];
+							echo date("Y-m-d H:i:s",strtotime($create_time)+8*3600);
+						?>
                 </span>
             </div>
         </div>
@@ -78,7 +81,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
 					if(isset($return2['ConnectInformationList']['data']) && $return2['ConnectInformationList']['data']){
                     foreach($return2['ConnectInformationList']['data'] as $key => $value) {
                         if($value['content']['id']!=$id && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
+                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
 					<?php $i++;}}}?>
                 </ul>
             </div>
