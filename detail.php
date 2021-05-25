@@ -67,7 +67,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 <span class="rig">
                         <?php
 							$create_time=($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];
-							echo date("Y-m-d H:i:s",strtotime($create_time)+8*3600);
+							echo date("Y-m-d H:i:s",strtotime($create_time));
 						?>
                 </span>
             </div>
