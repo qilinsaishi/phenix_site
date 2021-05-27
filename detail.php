@@ -5,6 +5,10 @@ $data = [
     "information"=>[$id],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
+ if(isset($return["information"]['data']['redirect']) && $return["information"]['data']['redirect']>0)
+{
+	renderDetail301($config,$return["information"]['data']['redirect']);
+}
 render404($return['information']['data'],$config);//404跳转
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",

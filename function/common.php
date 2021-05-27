@@ -225,5 +225,11 @@ function render404($data,$config){
 	}
 	return true;
 }
+function renderDetail301($config,$redirect)
+{
+	header('location:'.$config['site_url'] . '/detail/' . $redirect);
+	exit;
+	return true;
+}
 
 ?>
