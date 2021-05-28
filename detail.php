@@ -16,7 +16,7 @@ $ids = count($ids)>0?implode(",",$ids):"0";
 $data2 = [
     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>3,/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*","expect_id"=>$id],
     "infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>3,
-        "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
+        "type"=>$return['information']['data']['type']==4?"4":"1,2,3,5,6,7","fields"=>"id,title","expect_id"=>$id],
 ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
 
@@ -65,7 +65,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                         }}?>
                 </span>
                 <span class="rig">
-                        <?php echo ($return['information']['data']['type']==2)?$return['information']['data']['site_time']:$return['information']['data']['create_time'];?>
+                        <?php echo $return['information']['data']['create_time'];?>
                 </span>
             </div>
         </div>
