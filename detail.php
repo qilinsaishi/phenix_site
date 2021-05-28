@@ -5,6 +5,10 @@ $data = [
     "information"=>[$id],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
+ if(isset($return["information"]['data']['redirect']) && $return["information"]['data']['redirect']>0)
+{
+	renderDetail301($config,$return["information"]['data']['redirect']);
+}
 render404($return['information']['data'],$config);//404跳转
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
@@ -78,7 +82,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
 					if(isset($return2['ConnectInformationList']['data']) && $return2['ConnectInformationList']['data']){
                     foreach($return2['ConnectInformationList']['data'] as $key => $value) {
                         if($value['content']['id']!=$id && $i<=3){?>
-                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></li>
+                            <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
 					<?php $i++;}}}?>
                 </ul>
             </div>
