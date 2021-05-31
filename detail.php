@@ -9,7 +9,10 @@ $return = curl_post($config['api_get'],json_encode($data),1);
 {
 	renderDetail301($config,$return["information"]['data']['redirect']);
 }
-render404($return['information']['data'],$config);//404跳转
+if(!isset($return["information"]['data']['id'])){
+    render404($return['information']['data'],$config);//404跳转
+}
+
 $urlList = ["hero"=>"herodetail/",
     "team"=>"teamdetail/",
     "player"=>"playerdetail/",
