@@ -36,6 +36,7 @@ if($reset>0)
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <meta name="renderer" content="webkit">
+
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no, viewport-fit=cover"/>
@@ -66,7 +67,7 @@ if($reset>0)
                         </p>
                         <div class="clearfix">
                             <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">More</a>
-                            <span><?php echo substr((($value["type"]==2)?$value['site_time']:$value['create_time']),0,10);?></span>
+                            <span><?php echo substr($value['create_time'],0,10);?></span>
                         </div>
                     </div>
                 </li>
