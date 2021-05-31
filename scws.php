@@ -45,20 +45,21 @@ $info['page']['total_page'] = intval($return['informationList']['count']/$info['
             <?php foreach($return['informationList']['data'] as $key => $value) {?>
                 <li>
                     <div class="left">
-                        <a href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['content']['id'];?>">
-                            <img src="<?php echo $value['content']['logo'];?>" alt="<?php echo $value['content']['title'];?>">
+                        <a href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">
+                            <img src="<?php echo $value['logo'];?>" alt="<?php echo $value['title'];?>">
                         </a>
                     </div>
                     <div class="rig">
                         <h6>
-                            <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a>
+                            <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                         </h6>
                         <p>
-                            <?php echo mb_str_split($value['content']['content'],100);?>
+                            <?php
+							echo mb_str_split(html_entity_decode($value['content']),100);?>
                         </p>
                         <div class="clearfix">
-                            <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['content']['id'];?>">More</a>
-                            <span><?php echo substr((($value['content']["type"]==2)?$value['content']['site_time']:$value['content']['create_time']),0,10);?></span>
+                            <a class="more" href="<?php echo $config['site_url']; ?>/detail/<?php echo $value['id'];?>">More</a>
+                            <span><?php echo substr((($value["type"]==2)?$value['site_time']:$value['create_time']),0,10);?></span>
                         </div>
                     </div>
                 </li>
