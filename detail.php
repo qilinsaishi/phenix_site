@@ -84,7 +84,7 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                     $i = 1;
 					if(isset($return2['ConnectInformationList']['data']) && $return2['ConnectInformationList']['data']){
                     foreach($return2['ConnectInformationList']['data'] as $key => $value) {
-                        if($value['content']['id']!=$id && $i<=3){?>
+                        if($value['id']!=$id && $i<=3){?>
                             <li><a href="<?php echo $config['site_url'];?>/detail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></li>
 					<?php $i++;}}}?>
                 </ul>
