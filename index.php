@@ -42,7 +42,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 <img src="<?php echo $return['defaultConfig']['data']['iphone']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['iphone']['name'];?>">
             </div>
             <div class="rig">
-                <p><img src="<?php echo $return['defaultConfig']['data']['word']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['word']['name'];?>"></p>
+                <p><img style="display:none" src="<?php echo $return['defaultConfig']['data']['word']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['word']['name'];?>"></p>
                 <p class="btns">
                     <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>" target="_blank"><?php echo $return['defaultConfig']['data']['android_url']['name'];?></a>
                     <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" target="_blank"><?php echo $return['defaultConfig']['data']['ios_url']['name'];?></a>
@@ -72,7 +72,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             
     </div>
     <div class="des">
-        <h6 class="tit"><img src="<?php echo $config['site_url'];?>/assets/img/title_2.png" alt=""></h6>
+        <h6 class="tit"><img style="display:none" src="<?php echo $config['site_url'];?>/assets/img/title_2.png" alt=""></h6>
         <div class="content">
             <?php echo html_entity_decode($return['defaultConfig']['data']['site_desc']['value']);?>
         </div>
