@@ -2,7 +2,7 @@
 <?php
 require_once "function/init.php";
 $reset = $_GET['reset']??0;
-$info['page']['page_size'] = 20;
+$info['page']['page_size'] = 10;
 $page = $_GET['page']??1;
 $currentGame = $_GET['game']??"all";
 if($page==''){
@@ -81,11 +81,16 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                                 </a>
                             </div>
                         <?php }?>
+                        <div class="paging">
+                            <?php render_page_pagination($matchList['count'],$info['page']['page_size'],$currentGame==$game?$page:1,$config['site_url']."/game/".$game); ?>
+                        </div>
                     <?php }else{?>
+                        <div class="empty">
+                            <img src="<?php echo $config['site_url'];?>/images/empty.png" alt="">
+                            <p>敬请期待</p>
+                        </div>
                     <?php }?>
-                <div class="paging">
-                    <?php render_page_pagination($matchList['count'],$info['page']['page_size'],$currentGame==$game?$page:1,$config['site_url']."/game/".$game); ?>
-                </div>
+
             </div>
             <?php }?>
         </div>

@@ -298,7 +298,7 @@ h1{
 }
 .newsList,.newsDetail,.events{
     padding-top: 138px;
-    min-height: 60vh;
+    min-height: 63vh;
 }
 .news_list li{
     width: 100%;
@@ -659,5 +659,31 @@ border: .01rem solid #FA8E69;
 }
 .text_l{
     text-align: right;
+}
+/* .event_body{
+    position: relative;
+} */
+.empty{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 248px;
+    height: 181px;
+}
+.empty img{
+    display: block;
+    width: 248px;
+    height: 161px;
+    /* margin-bottom: 18px; */
+}
+.empty p{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
 }
 /* 赛事赛程 */
