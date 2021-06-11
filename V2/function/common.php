@@ -141,7 +141,6 @@ function generateNav($config, $current = "index")
             echo '<li><a href="' . $config['site_url'] . '/' . $value['url'] . '">' . $value['name'] . '</a></li>';
         }
     }
-    echo '</ul></div></div>';
     return;
 }
 
@@ -249,7 +248,7 @@ function renderDetail301($config,$redirect)
 	exit;
 	return true;
 }
-function renderHeaderJsCss($config,$customCss = [])
+function renderHeaderJsCss($config,$customCss = [],$customJs = [])
 {
     echo '<link rel="shortcut icon" href="'.$config['site_url'].'/images/favicon.ico">';
     $version=time();
@@ -263,7 +262,13 @@ function renderHeaderJsCss($config,$customCss = [])
             echo '<link rel="stylesheet" href="'.$config['site_url'].'/css/'.$file.'.css?v='.$version.'" type="text/css" />';
         }
     }
-    echo '<script src="'.$config['site_url'].'/js/rem.js" type="text/javascript"></script>';
+    foreach($customJs as $file)
+    {
+        if(trim($file)!="")
+        {
+            echo '<link rel="stylesheet" href="'.$config['site_url'].'/css/'.$file.'.css" type="text/css" />';
+        }
+    }
     echo '<script src="'.$config['site_url'].'/js/jquery.js" type="text/javascript"></script>';
 
 }

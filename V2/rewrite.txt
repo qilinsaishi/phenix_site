@@ -1,0 +1,12 @@
+        rewrite  ^/newslist/(.*)/reset$  /news.php?page=$1&reset=1?  last;
+        rewrite  ^/newslist/(.*)$  /news.php?page=$1?  last;
+        rewrite  ^/detail/(.*)$  /detail.php?id=$1?  last;
+        rewrite  ^/game/(.*)/(.*)$  /game.php?game=$1&page=$2?  last;
+        rewrite  ^/game/(.*)$  /game.php?game=$1?  last;
+        rewrite  ^/game  /game.php  last;
+        rewrite  ^/activity  /activity.php  last;
+        rewrite  ^/aboutus  /about.php  last;
+        rewrite  ^/scws/(.*)/(.*)$  /scws.php?ids=$1&page=$2?  last;
+        rewrite  ^/404  /404.php  last;
+        rewrite  ^/index  /index.php  last;
+		rewrite  ^/preview/(.*)$  /preview.php  last;
