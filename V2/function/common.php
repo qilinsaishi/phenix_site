@@ -14,62 +14,85 @@ function mb_str_split($str, $split_length = 1, $charset = "UTF-8")
     return implode("", $arr);
 }
 
-function render_page_pagination($total_count, $page_size, $current_page, $url)
+function render_page_pagination($total_count,$page_size,$current_page,$url)
 {
-
+    $domain='http://'.$_SERVER['SERVER_NAME'];
     $p = 5;
     $p2 = 2;
-    $totalPage = ceil($total_count / $page_size);
-    if ($current_page > 1) {
-        echo '<a href="' . $url . "/" . ($current_page - 1) . '" class="prev"><<</a>';
+    $totalPage = ceil($total_count/$page_size);
+    if($current_page>1)
+    {
+        echo '<a href="'.$url."/".($current_page-1).'" class="paging_pre"> <img src="'.$domain.'/images/right.png" alt="" class="active img_transform"></a>';
     }
-    if ($totalPage <= $p + $p2) {
-        for ($i = 1; $i <= $totalPage; $i++) {
-            echo '<a ' . (($i - $current_page) == 0 ? 'class="active"' : '') . 'href="' . $url . "/" . $i . '">' . $i . '</a>';
-        }
-    } else {
-        if ($current_page <= ($p - $p2)) {
-            for ($i = 1; $i <= $p; $i++) {
-                echo '<a ' . (($i - $current_page) == 0 ? 'class="active"' : '') . ' href="' . $url . "/" . $i . '">' . $i . '</a>';
-            }
-            echo '<a href="' . $url . "/" . ($current_page + $p) . '">...</a>';
-            for ($i = $p2; $i > 0; $i--) {
-                echo '<a href="' . $url . "/" . ($totalPage - $i) . '">' . ($totalPage - $i) . '</a>';
-            }
-        } elseif ($current_page <= ($p)) {
-            for ($i = 1; $i <= ($p + $p2); $i++) {
-                echo '<a ' . (($i - $current_page) == 0 ? 'class="active"' : '') . ' href="' . $url . "/" . $i . '">' . $i . '</a>';
-            }
-            echo '<a  href="' . $url . "/" . ($current_page + $p) . '">...</a>';
-            for ($i = $p2; $i > 0; $i--) {
-                echo '<a href="' . $url . "/" . ($totalPage - $i) . '">' . ($totalPage - $i) . '</a>';
-            }
-        } elseif ($current_page > $p && $current_page < ($totalPage - $p)) {
-            for ($i = 1; $i <= 1; $i++) {
-                echo '<a href="' . $url . "/" . $i . '">' . $i . '</a>';
-            }
-            echo '<a href="' . $url . "/" . ($current_page - $p) . '">...</a>';
-            for ($i = $current_page - 2; $i <= $current_page + 2; $i++) {
-                echo '<a ' . (($i - $current_page) == 0 ? 'class="active"' : '') . ' href="' . $url . "/" . $i . '">' . $i . '</a>';
-            }
-            echo '<a href="' . $url . "/" . ($current_page + $p) . '">...</a>';
-            for ($i = $p2; $i > 0; $i--) {
-                echo '<a href="' . $url . "/" . ($totalPage - $i) . '">' . ($totalPage - $i) . '</a>';
-            }
-        } elseif ($current_page >= ($totalPage - $p)) {
-            for ($i = 1; $i <= 1; $i++) {
-                echo '<a href="' . $url . "/" . $i . '">' . $i . '</a>';
-            }
-            if ($totalPage - $p != 1) {
-                echo '<a href="' . $url . "/" . ($current_page - $p) . '">...</a>';
-            }
-            for ($i = $p; $i > 0; $i--) {
-                echo '<a ' . (($totalPage - $i - $current_page) == 0 ? 'class="active"' : '') . ' href="' . $url . "/" . ($totalPage - $i) . '">' . ($totalPage - $i) . '</a>';
-            }
+    if($totalPage<=$p+$p2)
+    {
+        for($i=1;$i<=$totalPage;$i++)
+        {
+            echo '<a '.(($i-$current_page)==0?'class="paging_num active"  ':'class="paging_num " ').'href="'.$url."/".$i.'">'.$i.'</a>';
         }
     }
-    if ($current_page < $totalPage) {
-        echo '<a href="' . $url . "/" . ($current_page + 1) . '" class="next">>></a>';
+    else
+    {
+        if($current_page<=($p-$p2))
+        {
+            for($i=1;$i<=$p;$i++)
+            {
+                echo '<a '.(($i-$current_page)==0?'class="paging_num active"   ':'class="paging_num " ').' href="'.$url."/".$i.'">'.$i.'</a>';
+            }
+            echo '<a class="more" href="'.$url."/".($current_page+$p).'"><img src="'.$domain.'/images/more.png" alt=""></a>';
+            for($i=$p2;$i>0;$i--)
+            {
+                echo '<a class="paging_num" href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
+            }
+        }
+        elseif($current_page<=($p))
+        {
+            for($i=1;$i<=($p+$p2);$i++)
+            {
+                echo '<a '.(($i-$current_page)==0?'class="paging_num active"  ':'class="paging_num " ').' href="'.$url."/".$i.'">'.$i.'</a>';
+            }
+            echo '<a class="more" href="'.$url."/".($current_page+$p).'"><img src="'.$domain.'/images/more.png" alt=""></a>';
+            for($i=$p2;$i>0;$i--)
+            {
+                echo '<a class="paging_num" href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
+            }
+        }
+        elseif($current_page>$p && $current_page<($totalPage-$p))
+        {
+            for($i=1;$i<=1;$i++)
+            {
+                echo '<a class="paging_num" href="'.$url."/".$i.'">'.$i.'</a>';
+            }
+            echo '<a class="more" href="'.$url."/".($current_page-$p).'"><img src="'.$domain.'/images/more.png" alt=""></a>';
+            for($i=$current_page-2;$i<=$current_page+2;$i++)
+            {
+                echo '<a '.(($i-$current_page)==0?'class="paging_num active"  ':'class="paging_num "').' href="'.$url."/".$i.'">'.$i.'</a>';
+            }
+            echo '<a class="more" href="'.$url."/".($current_page+$p).'"><img src="'.$domain.'/images/more.png" alt=""></a>';
+            for($i=$p2;$i>0;$i--)
+            {
+                echo '<a class="paging_num" href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
+            }
+        }
+        elseif($current_page>=($totalPage-$p))
+        {
+            for($i=1;$i<=1;$i++)
+            {
+                echo '<a class="paging_num" href="'.$url."/".$i.'">'.$i.'</a>';
+            }
+            if($totalPage-$p != 1)
+            {
+                echo '<a class="paging_num" href="'.$url."/".($current_page-$p).'">...</a>';
+            }
+            for($i=$p;$i>0;$i--)
+            {
+                echo '<a '.(($totalPage-$i-$current_page)==0?'class="paging_num active"  ':'class="paging_num "').' href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
+            }
+        }
+    }
+    if($current_page<$totalPage)
+    {
+        echo '<a href="'.$url."/".($current_page+1).'" class="paging_next"><img src="'.$domain.'/images/right.png" alt="" class="active "></a>';
     }
 }
 

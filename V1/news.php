@@ -1,5 +1,4 @@
 <?php
-//ob_start(); //打开缓冲区
 require_once "function/init.php";
 $reset = $_GET['reset']??0;
 $info['page']['page_size'] = 5;
@@ -20,7 +19,6 @@ if($reset>0)
     echo "refreshed";
     die();
 }
-//ob_end_flush();//输出全部内容到浏览器
 ?>
 <!DOCTYPE html>
 <html lang="en">
