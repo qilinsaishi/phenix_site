@@ -2,5 +2,7 @@
 .DS_Store
 */.idea
 .idea
-function/config.php
-sitemap.xml
+V1/function/config.php
+V1/sitemap.xml
+V2/function/config.php
+V2/sitemap.xml
