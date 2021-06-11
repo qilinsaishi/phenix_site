@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官网首页</title>
+    <!-- 本页面新增 -->
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <ul class="head width">
+            <li>
+                <h1>
+                    <a href="##">凤凰电竞</a>
+                </h1>
+            </li>
+            <li class="active">
+                <a href="##">首页</a>
+            </li>
+            <li>
+                <a href="##">热门资讯</a>
+            </li>
+            <li>
+                <a href="##">赛事赛程</a>
+            </li>
+            <li>
+                <a href="##">最新活动</a>
+            </li>
+            <li>
+                <a href="##">关于我们</a>
+            </li>
+        </ul>
+    </header>
+    <div class="banner">
+        <div class="width banner_w">
+            <div class="theme">
+                <img src="./images/logo_write.png" alt="" class="logo_whole">
+                <span>一站式电竞游戏平台</span>
+                <div class="download">
+                    <img src="./images/download_ios.png" alt="">
+                    <img src="./images/download_android.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="advantage">
+        <div class="width">
+            <img class="advantage_img" src="./images/advantage.png" alt="">
+        </div>
+        <div class="animation width">
+            <img class='left3' src="./images/animate_left3.png" alt="">
+            <img class='left2' src="./images/animate_left2.png" alt="">
+            <img class='left1' src="./images/animate_left1.png" alt="">
+            <img class='center' src="./images/animate_center.png" alt="">
+            <img class='right1' src="./images/animate_right1.png" alt="">
+            <img class='right2' src="./images/animate_right2.png" alt="">
+            <img class='right3' src="./images/animate_right3.png" alt="">
+        </div>
+        <div class="animation_bg">
+            <img src="./images/animation_bg2.png" alt="" class="">
+        </div>
+    </div>
+    <div class="platform">
+        <img class="platform_top" src="./images/platform_top.png" alt="">
+        <img class="platform_logo" src="./images/platform_logo.png" alt="">
+        <p class="mess1">获得海南政府批复，以赛事游戏系统为基础，为广大用户发布赛事信息</p>
+        <div class="mess2">
+            <img src="./images/platform_bardius.png" alt="">
+            <p>提供有奖游戏的赛事服务平台</p>
+            <img src="./images/platform_bardius.png" alt="" class="platform_transfrom">
+        </div>
+        <img src="./images/platform_classify.png" alt="" class="platform_classify">
+        <p class="mess3">平台覆盖全球数万场赛事的综合电子竞技服务：涵盖英雄联盟（LOL）、DOTA2、CSGO、王者荣耀等热门游戏联赛</p>
+        <p class="mess3 mb40">包括S赛、LPL、Major、KPL等主流联事，地区性的乙级联赛均有收录</p>
+        <div class="mess2">
+            <img src="./images/platform_bardius.png" alt="">
+            <p>只有没见过，没有找不到的电竞联赛</p>
+            <img src="./images/platform_bardius.png" alt="" class="platform_transfrom">
+        </div>
+    </div>
+    <div class="welfare">
+        <img src="./images/welfare.png" alt="" class="welfare_top">
+        <div class="welfare_list width">
+            <img src="./images/welfare_img.png" alt="">
+            <img src="./images/welfare_img.png" alt="">
+            <img src="./images/welfare_img.png" alt="">
+        </div>
+    </div>
+    <div class="foot">
+        <div class="width">
+            <p class="link_title">友情链接</p>
+            <ul class="foot_ul">
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        凤凰电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        70电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        AZ电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        麒麟电竞
+                    </a>
+                </li>
+            </ul>
+            <div class="copyright">
+                <p>Copyright © 2021 www.qilindianjing.com</p>
+                <p>网站内容来源于网络，如果侵犯您的权益请联系删除</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function () {
+            var top = $(".banner").outerHeight()
+            var advantage = $(".advantage").outerHeight()
+            var platform1 = top + advantage;
+            var platform = top + advantage - 260 - $(window).height();
+            //头部header
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() > 88) {
+                    $('body').addClass('scrolled')
+                } else {
+                    $('body').removeClass('scrolled');
+                }
+
+                if ($(this).scrollTop() > 200) {
+                    console.log($(this).scrollTop())
+                    $(".animation .left3").addClass("animated delay-3s fadeInLeftBig");
+                    $(".animation .left2").addClass("animated delay-2s fadeInLeftBig");
+                    $(".animation .left1").addClass("animated delay-1s fadeInLeftBig");
+                    $(".animation .center").addClass("animated zoomIn");
+                    $(".animation .right3").addClass("animated delay-3s fadeInRightBig");
+                    $(".animation .right2").addClass("animated delay-2s fadeInRightBig");
+                    $(".animation .right1").addClass("animated delay-1s fadeInRightBig");
+                    $(".animation_bg img").addClass("animated delay-3s zoomIn")
+                } else {
+                    $(".animation .left3").removeClass("animated delay-3s fadeInLeftBig");
+                    $(".animation .left2").removeClass("animated delay-2s fadeInLeftBig");
+                    $(".animation .left1").removeClass("animated delay-1s fadeInLeftBig");
+                    $(".animation .center").removeClass("animated zoomIn");
+                    $(".animation .right3").removeClass("animated delay-3s fadeInRightBig");
+                    $(".animation .right2").removeClass("animated delay-2s fadeInRightBig");
+                    $(".animation .right1").removeClass("animated delay-1s fadeInRightBig");
+                    $(".animation_bg img").removeClass("animated delay-3s zoomIn")
+                }
+
+                if ($(this).scrollTop() > platform) {
+                    $(".platform").addClass("animated fadeInUp")
+                } else {
+                    // $(".platform").removeClass("animated fadeInUp")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
