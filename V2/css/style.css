@@ -296,7 +296,7 @@ h1{
     background-size: 100%;
     min-height: 100vh;
 }
-.newsList,.newsDetail,.events{
+.newsList,.newsDetail,.events,.activity_all,.about{
     padding-top: 138px;
     min-height: 63vh;
 }
@@ -687,3 +687,142 @@ border: .01rem solid #FA8E69;
     line-height: 20px;
 }
 /* 赛事赛程 */
+/* 活动 */
+.activity_img{
+    width: 1200px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+.activity_img img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.activity_mid{
+    display: flex;
+    justify-content: space-between;
+}
+.activity_title{
+    font-size: 22px;
+    color: #FFE1A7;
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 30px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    padding-right: 20px;
+}
+.activity_description{
+    font-size: 16px;
+    color: #D7B677;
+    line-height: 24px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.activity{
+    margin-bottom: 60px;
+}
+.activity_time{
+    width: 188px;
+    height: 32px;
+    background: #FFD177;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 32px;
+    text-align: center;
+}
+/* 活动 */
+/* 关于我们 */
+.about{
+    padding-top:180px;
+}
+.about .about_logo{
+    margin: 0 auto;
+    margin-bottom: 60px;
+    width: 108px;
+    height: 108px;
+}
+.about .about_c{
+    width: 402px;
+    height: 96px;
+    margin: 0 auto;
+    margin-bottom: 18px;
+}
+.about_descr{
+    
+}
+/* .about_description{
+    display: flex;
+    justify-content: space-between;
+} */
+.about_descr p{
+    width: 984px;
+    font-size: 20px;
+    color: #FFD177;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+.about_description {
+margin-bottom: 102px;
+}
+.about_description img{
+    width: 56px;
+    height: 42px;
+}
+.transfrom{
+    float: right;
+    transform: rotate(180deg);
+    width: 56px;
+    height: 42px;
+}
+.about .contact{
+    display: flex;
+    justify-content: space-between;
+}
+.about .contact li{
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+    justify-content: center;
+    align-items: center;
+}
+.about .contact .contact_img{
+    width: 108px;
+    height: 108px;
+    margin-bottom: 30px;
+}
+.about .contact .contact_img img{
+    display: none;
+}
+.about .contact .contact_img img.active{
+    display: block;
+}
+.about .contact span{
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #FFD177;
+    margin-bottom: 20px;
+}
+.about .contact li p{
+    font-size: 16px;
+    color: #D7B677;
+    line-height: 22px;
+    text-align: center;
+}
+.about .contact li:hover .contact_img img{
+    display: none;
+}
+.about .contact li:hover .contact_img a img{
+    display: block;
+}
+/* 关于我们 */
