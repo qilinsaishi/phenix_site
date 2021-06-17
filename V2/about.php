@@ -1,8 +1,8 @@
 <?php
 require_once "function/init.php";
 $data = [
-    "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "defaultConfig"=>["keys"=>["wechat_qr_code","QQ","site_desc","introduction","aboutus","contact","weibo"],"site_id"=>$config['site_id']],
+"links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
+"defaultConfig"=>["keys"=>["wechat_qr_code","QQ","site_desc","introduction","aboutus","contact","weibo"],"site_id"=>$config['site_id']],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 ?>
@@ -55,12 +55,12 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <li>
                 <div class="contact_img">
                     <img src="<?php echo $config['site_url'];?>/images/qq.png" alt="" class="active">
-                    <a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>&Site=&Menu=yes" target="_blank" href="http://v=3&amp;uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>&amp;site=qq&amp;menu=yes" class="contact_img">
+                    <a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>&Site=&Menu=yes" target="_blank"  class="contact_img">
                         <img src="<?php echo $config['site_url'];?>/images/qq1.png" alt="">
                     </a>
                 </div>
                 <span>官方QQ</span>
-                <p>在线对话，为您解决遇到的问题官方QQ：1507064182</p>
+                <p>在线对话，为您解决遇到的问题官方QQ：<a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?></p>
             </li>
             <li>
                 <div class="contact_img">
@@ -87,7 +87,6 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <?php renderCertification($config);?>
         </div>
     </div>
-    <script src="<?php echo $config['site_url'];?>/js/jquery.js"></script>
     <script>
         $(function () {
             //头部header
@@ -97,8 +96,6 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 } else {
                     $('body').removeClass('scrolled');
                 }
-
-
             })
         })
     </script>
