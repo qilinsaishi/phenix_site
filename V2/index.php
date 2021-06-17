@@ -34,7 +34,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 <span>一站式电竞游戏平台</span>
                 <div class="download">
                     <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>"><img src="<?php echo $config['site_url'];?>/images/download_ios.png" alt="IOS下载"></a>
-                        <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>"><img src="<?php echo $config['site_url'];?>/images/download_android.png" alt="Android下载"></a>
+                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>"><img src="<?php echo $config['site_url'];?>/images/download_android.png" alt="Android下载"></a>
                 </div>
             </div>
         </div>
