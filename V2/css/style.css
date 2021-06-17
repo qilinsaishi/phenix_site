@@ -287,6 +287,12 @@ h1{
     line-height: 38px;
     text-align: center;
 }
+.copyright p a {
+    font-size: 16px;
+    color: #675345;
+    line-height: 38px;
+    text-align: center;
+}
 /* 列表详情页 */
 .newsList_body{
     background-image: url("../images/newsList_bg.png");
