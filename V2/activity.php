@@ -30,7 +30,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <div class="activity_all width">
         <div class="activity">
             <?php foreach($return['activityList']['data'] as $activeInfo){?>
-                <a href="<?php echo $activeInfo['url'];?>" target = "_blank">
+                <a href="<?php echo $activeInfo['url'];?>" target = "_blank" rel="nofollow">
                     <div class="activity_img">
                         <img src="<?php echo $activeInfo['logo'];?>" alt="<?php echo $activeInfo['title'];?>">
                     </div>
