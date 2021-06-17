@@ -47,7 +47,6 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
             </div>
             <div class="newsDetail_content">
                 <?php echo html_entity_decode($return['information']['data']['content']);?>
-                <img src="<?php echo $return['information']['data']['logo'];?>" alt="<?php echo $return['information']['data']['title'];?>">
             </div>
             <div class="newsDetail_label">
                 <?php $i=0;if(count($return["information"]['data']['baidu_word_list'])>0){ foreach($return["information"]['data']['baidu_word_list'] as $key => $word){?>
@@ -92,14 +91,16 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
     </div>
     <div class="foot">
         <div class="width">
-            <p class="link_title">友情链接</p>
-            <ul class="foot_ul">
-                <?php
-                foreach($return['links']['data'] as $linksInfo)
-                {   ?>
-                    <li><a href="<?php echo $linksInfo['url'];?>"><?php echo $linksInfo['name'];?></a></li>
-                <?php }?>
-            </ul>
+            <?php if(isset($return['links']['data']) && count($return['links']['data'])>0){?>
+                <p class="link_title">友情链接</p>
+                <ul class="foot_ul">
+                    <?php
+                    foreach($return['links']['data'] as $linksInfo)
+                    {   ?>
+                        <li><a href="<?php echo $linksInfo['url'];?>"><?php echo $linksInfo['name'];?></a></li>
+                    <?php }?>
+                </ul>
+            <?php }?>
             <?php renderCertification($config);?>
         </div>
     </div>

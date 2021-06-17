@@ -47,14 +47,16 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     </div>
     <div class="foot">
         <div class="width">
-            <p class="link_title">友情链接</p>
-            <ul class="foot_ul">
-                <?php
-                foreach($return['links']['data'] as $linksInfo)
-                {   ?>
-                    <li><a href="<?php echo $linksInfo['url'];?>"><?php echo $linksInfo['name'];?></a></li>
-                <?php }?>
-            </ul>
+            <?php if(isset($return['links']['data']) && count($return['links']['data'])>0){?>
+                <p class="link_title">友情链接</p>
+                <ul class="foot_ul">
+                    <?php
+                    foreach($return['links']['data'] as $linksInfo)
+                    {   ?>
+                        <li><a href="<?php echo $linksInfo['url'];?>"><?php echo $linksInfo['name'];?></a></li>
+                    <?php }?>
+                </ul>
+            <?php }?>
             <?php renderCertification($config);?>
         </div>
     </div>
