@@ -22,7 +22,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
 <body class="newsList_body event_body">
     <header>
         <ul class="head width">
-            <?php generateNav($config,"about");?>
+            <?php generateNav($config,"aboutus");?>
         </ul>
     </header>
     <div class="about width">
@@ -60,7 +60,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                     </a>
                 </div>
                 <span>官方QQ</span>
-                <p>在线对话，为您解决遇到的问题官方QQ：<a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?></p>
+                <p>在线对话，为您解决遇到的问题官方QQ：<a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>"></a></p>
             </li>
             <li>
                 <div class="contact_img">

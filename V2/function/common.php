@@ -266,7 +266,7 @@ function renderHeaderJsCss($config,$customCss = [],$customJs = [])
     {
         if(trim($file)!="")
         {
-            echo '<script src="'.$config['site_url'].'/js/'.$file.'.js" type="text/javascript"/>';
+            echo '<script src="'.$config['site_url'].'/js/'.$file.'.js" type="text/javascript"></script>';
         }
     }
     echo '<script src="'.$config['site_url'].'/js/jquery.js" type="text/javascript"></script>';

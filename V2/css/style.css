@@ -470,6 +470,12 @@ border: .01rem solid #FA8E69;
     line-height: 18px;
 }
 .newsDetail_content{
+    font-size: 16px;
+    color: #D7B677;
+    line-height: 24px;
+    margin-bottom: 10px;
+    text-align: justify;
+    word-break: break-all;
     padding-top: 28px;
 }
 .newsDetail_content p{

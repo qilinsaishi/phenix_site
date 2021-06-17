@@ -37,7 +37,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
 <body class="newsList_body">
     <header>
         <ul class="head width">
-            <?php generateNav($config,"news");?>
+            <?php generateNav($config,"game");?>
         </ul>
     </header>
     <div class="events width">

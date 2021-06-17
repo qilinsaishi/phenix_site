@@ -112,8 +112,6 @@ $return2 = curl_post($config['api_get'],json_encode($data2),1);
                 } else {
                     $('body').removeClass('scrolled');
                 }
-
-
             })
         })
     </script>
