@@ -2,7 +2,7 @@
 require_once "function/init.php";
 $data = [
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "defaultConfig"=>["keys"=>["iphone","word","app_qrcode","site_desc","ios_url","android_url","aboutus","introduction","aboutus","contact"],"site_id"=>2],
+    "defaultConfig"=>["keys"=>["wechat_qr_code","QQ","site_desc","introduction","aboutus","contact","weibo"],"site_id"=>$config['site_id']],
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 ?>
@@ -13,7 +13,9 @@ $return = curl_post($config['api_get'],json_encode($data),1);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们</title>
+    <title>关于我们-<?php echo $config['site_name'];?>，专业电竞赛事比分分析大数据平台</title>
+    <meta name="description" content="<?php echo $config['site_name'];?>是以电竞赛事为主的电子竞技数据平台,<?php echo $config['site_name'];?>涵盖LOL比赛、DOTA2比赛、CSGO赛事、王者荣耀KPL比分等电竞比赛赛程，关注<?php echo $config['site_name'];?>，电竞赛事数据一手掌握。">
+    <meta name=”Keywords” Content=”″>
     <?php renderHeaderJsCss($config,[]);?>
 </head>
 
@@ -43,16 +45,17 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 <div class="contact_img">
                     <img src="<?php echo $config['site_url'];?>/images/weix.png" alt="" class="active">
                     <a href="##">
-                        <img src="<?php echo $config['site_url'];?>/images/weix1.png" alt="">
+                        <img src="<?php echo $return['defaultConfig']['data']['wechat_qr_code']['value'];?>" alt="<?php echo $return['defaultConfig']['data']['wechat_qr_code']['name'];?>">
                     </a>
                 </div>
                 <span>微信公众号</span>
-                <p>多层次，全方位,高精准的剖析各类赛事公众号：凤凰电竞赛事</p>
+                <p>多层次，全方位,高精准的剖析各类赛事公众号：<?php echo $return['defaultConfig']['data']['wechat_qr_code']['remarks'];?>
+                </p>
             </li>
             <li>
                 <div class="contact_img">
                     <img src="<?php echo $config['site_url'];?>/images/qq.png" alt="" class="active">
-                    <a href="tencent://message/?uin=1507064182&Site=&Menu=yes" target="_blank" href="http://v=3&amp;uin=2463964705&amp;site=qq&amp;menu=yes" class="contact_img">
+                    <a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>&Site=&Menu=yes" target="_blank" href="http://v=3&amp;uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>&amp;site=qq&amp;menu=yes" class="contact_img">
                         <img src="<?php echo $config['site_url'];?>/images/qq1.png" alt="">
                     </a>
                 </div>
@@ -67,7 +70,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                     </a>
                 </div>
                 <span>官方微博</span>
-                <p>了解最全面的电竞赛事资讯、分析微博：凤凰电竞</p>
+                <p>了解最全面的电竞赛事资讯、分析微博：<?php echo $return['defaultConfig']['data']['weibo']['value'];?></p>
             </li>
         </ul>
     </div>
