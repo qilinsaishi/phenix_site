@@ -33,10 +33,28 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 <img src="<?php echo $config['site_url'];?>/images/logo_write.png" alt="" class="logo_whole">
                 <span>一站式电竞游戏平台</span>
                 <div class="download">
-                    <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>"><img src="<?php echo $config['site_url'];?>/images/download_ios.png" alt="IOS下载"></a>
-                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>"><img src="<?php echo $config['site_url'];?>/images/download_android.png" alt="Android下载"></a>
+                    <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" class="download_ios">
+                        <img src="<?php echo $config['site_url'];?>/images/download_ios.png" alt="" class="img">
+                        <div class="download_hover">
+                            <img src="<?php echo $config['site_url'];?>/images/download_bg.png" alt="" class="download_hover_bg">
+                            <div class="ecode_bg">
+                                <img src="<?php echo $config['site_url'];?>/images/ecode.png" alt="" class="ecode">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>" class="download_android">
+                        <img src="<?php echo $config['site_url'];?>/images/download_android.png" alt="" class="img">
+                        <div class="download_hover">
+                            <img src="<?php echo $config['site_url'];?>/images/download_bg.png" alt="" class="download_hover_bg">
+                            <div class="ecode_bg">
+                                <img src="<?php echo $config['site_url'];?>/images/ecode.png" alt="" class="ecode">
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
+
+            
         </div>
     </div>
     <div class="advantage">
@@ -138,6 +156,26 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                     // $(".platform").removeClass("animated fadeInUp")
                 }
             })
+        })
+        // banner移入移出
+        $(".download").on("mouseenter",'.download_ios',function(){
+            $('.download_ios .img').css("display","none")
+            $(".download_ios .download_hover").css("display","block")
+            $(".download_ios .ecode").addClass("animated slideInDown")
+        })
+        $(".download").on("mouseleave",'.download_ios',function(){
+            $('.download_ios .img').css("display","block")
+            $(".download_ios .download_hover").css("display","none")
+        })
+
+        $(".download").on("mouseenter",'.download_android',function(){
+            $('.download_android .img').css("display","none")
+            $(".download_android .download_hover").css("display","block")
+            $(".download_android .ecode").addClass("animated slideInDown")
+        })
+        $(".download").on("mouseleave",'.download_android',function(){
+            $('.download_android .img').css("display","block")
+            $(".download_android .download_hover").css("display","none")
         })
     </script>
 </body>

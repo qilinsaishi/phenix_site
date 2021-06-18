@@ -88,12 +88,15 @@ h1{
     height: 36px;
     line-height: 36px;
     color: #F5DA9C;
-    margin-bottom: 46px;
+    margin-bottom: 23px;
 }
 .download{
     height: 62px;
     display: flex;
     justify-content: space-between;
+}
+.download img{
+    display: block;
 }
 /* .scrolled{
     margin-top: 50px;
@@ -287,12 +290,6 @@ h1{
     line-height: 38px;
     text-align: center;
 }
-.copyright p a {
-    font-size: 16px;
-    color: #675345 !important;
-    line-height: 38px;
-    text-align: center;
-}
 /* 列表详情页 */
 .newsList_body{
     background-image: url("../images/newsList_bg.png");
@@ -476,15 +473,7 @@ border: .01rem solid #FA8E69;
     line-height: 18px;
 }
 .newsDetail_content{
-    font-size: 16px;
-    color: #D7B677;
-    line-height: 24px;
-    margin-bottom: 10px;
-    text-align: justify;
-    word-break: break-all;
     padding-top: 28px;
-    font-family: 'shuzi1!important';
-    color: #D7B677!important;
 }
 .newsDetail_content p{
     font-size: 16px;
@@ -493,8 +482,6 @@ border: .01rem solid #FA8E69;
     margin-bottom: 10px;
     text-align: justify;
     word-break: break-all;
-    font-family: 'shuzi1!important';
-    color: #D7B677!important;
 }
 .newsDetail_content *{
     font-size: 16px;
@@ -503,8 +490,6 @@ border: .01rem solid #FA8E69;
     margin-bottom: 10px;
     text-align: justify;
     word-break: break-all;
-    font-family: 'shuzi1!important';
-    color: #D7B677!important;
 }
 .newsDetail_content img{
     max-width: 100%;
@@ -531,7 +516,8 @@ border: .01rem solid #FA8E69;
     margin-bottom: 10px;
 }
 .news_all{
-    padding-top: 50px;
+    padding: 20px 30px;
+    background-color: rgba(0,0,0,.5);
 }
 .news_title{
     display: flex;
@@ -844,3 +830,80 @@ margin-bottom: 102px;
     display: block;
 }
 /* 关于我们 */
+/* 赛事赛程页弹窗 */
+.e_hover{
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+}
+.hover{
+    background-image: url("../images/hover.png");
+    width: 380px;
+    height: 358px;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.hover_close{
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+/* 赛事赛程页弹窗 */
+/* 首页banner图中的hover */
+.download_hover{
+    display: none;
+    position: relative;
+}
+.download_hover_bg img{
+    width:240px;
+    height: 62px;
+}
+.download a{
+    width: 240px;
+    height: 62px;
+    flex-shrink: 0;
+}
+.download img{
+    width: 240px;
+    height: 62px;
+    flex-shrink: 0;
+}
+.download.active{
+    flex-direction: row-reverse;
+}
+.download .ecode{
+    width: 128px;
+    height: 128px;
+    display: block;
+    margin: 0 auto;
+}
+.download{
+    height: 158px;
+    overflow: hidden;
+}
+.download .ecode_bg{
+    width: 128px;
+    height: 128px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -64px;
+    top: 30px;
+    z-index: 2;
+    overflow: hidden;
+}

@@ -111,7 +111,11 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             <?php renderCertification($config);?>
         </div>
     </div>
-    <script src="./js/jquery.js"></script>
+    <div class="e_hover">
+        <div class="hover">
+            <img src="<?php echo $config['site_url'];?>/images/close.png" alt="" class="hover_close">
+        </div>
+    </div>
     <script>
         $(function () {
             //头部header
@@ -136,6 +140,13 @@ $return = curl_post($config['api_get'],json_encode($data),1);
             $(this).addClass("active");
             $(this).parents(".events").find(".events_list").find(".events_item").fadeOut().eq($(this).index()).fadeIn()
         })
+        $(".events_item").on("click",".battle",function(){
+            $(".e_hover").fadeIn()
+        })
+        $("body").on("click",".hover_close",function(){
+            $(".e_hover").fadeOut()
+        })
+
     </script>
 </body>
 

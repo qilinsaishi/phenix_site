@@ -59,8 +59,8 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                         <img src="<?php echo $config['site_url'];?>/images/qq1.png" alt="">
                     </a>
                 </div>
-                <span>官方QQ</span>
-                <p>在线对话，为您解决遇到的问题官方QQ：<a href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>"></a></p>
+                <span>官方QQ:</span>
+                <p>在线对话，为您解决遇到的问题官方QQ：<a style="font-size:16px;color:#D7B677;line-height:22px;" href="tencent://message/?uin=<?php echo $return['defaultConfig']['data']['QQ']['value'];?>"><?php echo $return['defaultConfig']['data']['QQ']['value'];?></a></p>
             </li>
             <li>
                 <div class="contact_img">
