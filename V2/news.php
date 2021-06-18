@@ -80,7 +80,6 @@ if($reset>0)
             <?php renderCertification($config);?>
         </div>
     </div>
-    <script src="./js/jquery.js"></script>
     <script>
         $(function () {
             //头部header
