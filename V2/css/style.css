@@ -292,7 +292,7 @@ h1{
 }
 .copyright p a{
     font-size: 16px;
-    color: #675345;
+    color: #675345!important;
     line-height: 38px;
 }
 /* 列表详情页 */
@@ -530,8 +530,9 @@ border: .01rem solid #FA8E69;
 }
 .news_all{
     padding: 20px 30px;
-    background-color: rgba(0,0,0,.5);
-    padding-top: 58px;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 8px;
+    margin-top: 40px;
 }
 .news_title{
     display: flex;
@@ -708,7 +709,6 @@ border: .01rem solid #FA8E69;
 /* 活动 */
 .activity_img{
     width: 1200px;
-    border-radius: 8px;
     margin-bottom: 30px;
 }
 .activity_img img{
@@ -719,6 +719,7 @@ border: .01rem solid #FA8E69;
 .activity_mid{
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
 }
 .activity_title{
     font-size: 22px;
@@ -741,9 +742,14 @@ border: .01rem solid #FA8E69;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    padding: 0 20px;
 }
 .activity{
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 8px;
+    overflow: hidden;
 }
 .activity_time{
     width: 188px;
@@ -755,6 +761,8 @@ border: .01rem solid #FA8E69;
     color: #333333;
     line-height: 32px;
     text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
 }
 /* 活动 */
 /* 关于我们 */

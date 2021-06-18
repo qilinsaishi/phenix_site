@@ -33,7 +33,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                 <img src="<?php echo $config['site_url'];?>/images/logo_write.png" alt="" class="logo_whole">
                 <span>一站式电竞游戏平台</span>
                 <div class="download">
-                    <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" class="download_ios">
+                    <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" class="download_ios" target="_blank">
                         <img src="<?php echo $config['site_url'];?>/images/download_ios.png" alt="" class="img">
                         <div class="download_hover">
                             <img src="<?php echo $config['site_url'];?>/images/download_bg.png" alt="" class="download_hover_bg">
@@ -42,7 +42,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                             </div>
                         </div>
                     </a>
-                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>" class="download_android">
+                    <a href="<?php echo $return['defaultConfig']['data']['android_url']['value'];?>" class="download_android" target="_blank">
                         <img src="<?php echo $config['site_url'];?>/images/download_android.png" alt="" class="img">
                         <div class="download_hover">
                             <img src="<?php echo $config['site_url'];?>/images/download_bg.png" alt="" class="download_hover_bg">
