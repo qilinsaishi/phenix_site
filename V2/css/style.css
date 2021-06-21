@@ -504,6 +504,13 @@ border: .01rem solid #FA8E69;
     word-break: break-all;
     font-family: 'shuzi1';
 }
+.newsDetail_content video{
+	width:auto !important;
+	max-height:600px !important;
+	margin:0 auto;
+	display:block
+}
+
 .newsDetail_content img{
     max-width: 100%;
     display: block;
