@@ -21,6 +21,48 @@ $data2 =
             "ConnectInformationList"=>["dataType"=>"baiduInformaitonList","site"=>1,"ids"=>$ids,"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7","fields"=>"id,title,site_time","expect_id"=>$id],
     ];
 $return2 = curl_post($config['api_get'],json_encode($data2),1);
+$author_found = 0;
+foreach($config['author'] as $author)
+{
+    if(strpos($return['information']['data']['author'],$author) !== false)
+    {
+        $author_found = 1;
+        break;
+    }
+}
+
+if( $author_found == 0 )
+{
+    if($return['information']['data']['type']!=7)
+    {
+        $return['information']['data']['content'] = replace_html_tag($return['information']['data']['content'],'<img><br><p>');
+    }
+}
+$imgpreg = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
+preg_match_all($imgpreg,$return['information']['data']['content'],$imgList);
+$i = 0;$replace_arr = [];
+if(isset($imgList['0']) && count($imgList['0']))
+{
+    foreach($imgList['0'] as $key => $img)
+    {
+        //echo "replace:"."###".sprintf("%03d",$key)."###"."\n";
+        $return['information']['data']['content'] = str_replace($img,"<br>".$img."<br>",$return['information']['data']['content']);
+    }
+}
+$reg = "/['#']{3,2000}/u";
+preg_match_all($reg,$return['information']['data']['content'],$match);
+$match = array_unique($match);
+$replace_list = [];
+foreach($match['0'] as $k => $txt)
+{
+    $replace_list[strlen($txt)] = $txt;
+}
+krsort($replace_list);
+foreach($replace_list as $key => $txt)
+{
+    $return['information']['data']['content'] = str_replace($txt,"",$return['information']['data']['content']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -8,7 +8,8 @@ $base_config = [
     'game_name'=>"英雄联盟",
     'game'=>"lol",
     'site_id'=>2,
-    'baidu_token'=>'WGi6okVpl9ij8Gc3'
+    'baidu_token'=>'WGi6okVpl9ij8Gc3',
+	'author'=>["凤凰电竞"],
 ];
 
 $additional_config = [
