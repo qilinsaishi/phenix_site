@@ -10,6 +10,7 @@ $base_config = [
     'default_source' => "scoregg",
     'site_id' => 2,
     'baidu_token' => 'WGi6okVpl9ij8Gc3',
+	'author'=>["凤凰电竞"],
     'default_oss_img_size' => [
         "teamList" => '?x-oss-process=image/resize,m_lfit,h_40,w_40',
         "playerList" => '?x-oss-process=image/resize,m_lfit,h_100,w_100',

@@ -22,7 +22,7 @@ header{
     width: 1200px;
     margin: 0 auto;
 }
-h1{
+.head h1{
     text-indent: -999999px;
     width: 100px;
     height: 100px;
@@ -113,7 +113,7 @@ h1{
 .scrolled .head li.active a::after{
     background: #1D1915;
 }
-.scrolled h1{
+.scrolled .head h1{
     background-image: url("../images/logo-drop-down.png");
 }
 .advantage{
@@ -504,6 +504,13 @@ border: .01rem solid #FA8E69;
     word-break: break-all;
     font-family: 'shuzi1';
 }
+.newsDetail_content video{
+	width:auto !important;
+	max-height:600px !important;
+	margin:0 auto;
+	display:block
+}
+
 .newsDetail_content img{
     max-width: 100%;
     display: block;
