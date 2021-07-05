@@ -31,7 +31,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
         <div class="width banner_w">
             <div class="theme">
                 <img src="<?php echo $config['site_url'];?>/images/logo_write.png" alt="" class="logo_whole">
-                <span>一站式电竞游戏平台</span>
+                <span>一站式电竞赛事综合平台</span>
                 <div class="download">
                     <a href="<?php echo $return['defaultConfig']['data']['ios_url']['value'];?>" class="download_ios" target="_blank">
                         <img src="<?php echo $config['site_url'];?>/images/download_ios.png" alt="" class="img">
@@ -75,7 +75,7 @@ $return = curl_post($config['api_get'],json_encode($data),1);
         </div>
     </div>
     <div class="platform">
-        <img class="platform_top" src="<?php echo $config['site_url'];?>/images/platform_top.png" alt="">
+        <img class="platform_top" src="<?php echo $config['site_url'];?>/images/platform_top.png?v=1" alt="">
         <img class="platform_logo" src="<?php echo $config['site_url'];?>/images/platform_logo.png" alt="">
         <p class="mess1">获得海南政府批复，以赛事游戏系统为基础，为广大用户发布赛事信息</p>
         <div class="mess2">
