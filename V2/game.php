@@ -68,15 +68,15 @@ $return = curl_post($config['api_get'],json_encode($data),1);
                                     </div>
                                     <span class="battle_line"></span>
                                     <div class="battle_team">
-                                        <span class="battle_team_name text_l"><?php echo $matchInfo['home_team_info']['team_name'];?></span>
+                                        <span class="battle_team_name text_l"><?php echo (!isset($matchInfo['home_team_info']['team_name']) || $matchInfo['home_team_info']['team_name']=="0")?$matchInfo['home_name']:$matchInfo['home_team_info']['team_name'];?></span>
                                         <div class="battle_team_img">
-                                            <img src="<?php echo $matchInfo['home_team_info']['logo'].$config['default_oss_img_size']['teamList'];?>" alt="">
+                                            <img src="<?php echo ($matchInfo['home_team_info']['logo']=="0"?$matchInfo['home_logo']:$matchInfo['home_team_info']['logo']).$config['default_oss_img_size']['teamList'];?>" alt="">
                                         </div>
                                         <span class="battle_vs">VS</span>
                                         <div class="battle_team_img1">
-                                            <img src="<?php echo $matchInfo['away_team_info']['logo'].$config['default_oss_img_size']['teamList'];?>" alt="">
+                                            <img src="<?php echo ($matchInfo['away_team_info']['logo']=="0"?$matchInfo['away_logo']:$matchInfo['away_team_info']['logo']).$config['default_oss_img_size']['teamList'];?>" alt="">
                                         </div>
-                                        <span class="battle_team_name"><?php echo $matchInfo['away_team_info']['team_name'];?></span>
+                                        <span class="battle_team_name"><?php echo (!isset($matchInfo['away_team_info']['team_name']) || $matchInfo['away_team_info']['team_name']=="0")?$matchInfo['away_name']:$matchInfo['away_team_info']['team_name'];?></span>
                                     </div>
                                 </a>
                             </div>
